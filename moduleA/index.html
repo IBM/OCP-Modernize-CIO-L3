@@ -505,12 +505,10 @@
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># CMD [“/bin/bash”, “-c”, “sleep infinity”]</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Remove the `#` from the start of the following line (originally line 6 in Dockerfile) to make the instruction executable:
-</code></pre></div>
+<p>Remove the <code>#</code> from the start of the following line (originally line 6 in Dockerfile) to make the instruction executable:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>CMD <span class="o">[</span>“/bin/bash”, “-c”, “--”, “while true<span class="p">;</span> <span class="k">do</span> sleep <span class="m">30</span><span class="p">;</span> <span class="k">done</span><span class="p">;</span>”<span class="o">]</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>You may add additional comments, like shown on line 5, explaining the code base changes.
-</code></pre></div>
+<p>You may add additional comments, like shown on line 5, explaining the code base changes.</p>
 <hr />
 <ol start="35">
 <li>
@@ -555,7 +553,6 @@
 <p>Record the output from console.</p>
 </div>
 <p>The output from the Terminal should reflect the code changes you committed to the Dockerfile previously. If so, congratulations — you’ve successfully updated Amy’s application and automatically pushed those version changes into a new live build of the service!</p>
-<hr />
 <p>You have successfully demonstrated OpenShift’s S2I capabilities by using a Dockerfile, deployed a pod from a Dockerfile hosted in GitHub, set up connectivity between OCP and GitHub by using a webhook, and tested to ensure that the new code changes within the repository resulted in a new pod deployment within your OpenShift cluster.</p>
 <hr />
 <h1 id="_1"></h1>
@@ -567,6 +564,10 @@
 <p>The concept of Shift Left application development also wonderfully mirrors the same rigorous methodology of revisiting and questioning a null hypothesis using the scientific method. Shifting back to the left—pulling through again with a finer-toothed comb—and continuing to refine on the design (rather than pushing straight through to release with the first working prototype) puts the values of <em>Poka yoke</em> into practice. </p>
 <p>The ability to run an application in the cloud, in a way that’s independent of any cloud vendor—where your own datacenter or machine room can be one of those “vendors”—is a huge step forward. But there’s more to the problem than running the application. You need the ability to deploy it, you need the ability to integrate components together, and you need the ability to test in a modern way. What’s more, these capabilities all need to be automated—in part so they can be repeated reliably, but also so they can be performed repeatedly.</p>
 <p>All of these capabilities come under the heading of <strong>Continuous Integration &amp; Continuous Delivery</strong> (CI/CD). The deployment scenarios of 20 or 30 years ago, when a “deployment” was very likely to be a break-the-world change, with the entire development and operations teams keeping their fingers crossed and hoping nothing breaks, are a thing of the past. We’ve discovered that the way to deploy software reliably is to deploy it frequently, where each deployment represents a minor change to a very small number of features. If each release represents a minor change, changes are easy to roll back; changes can be deployed to a small number of users for testing; and, most of all, short, reliable release cycles force you to commit your release process to software. </p>
+<p>As we mentioned before, <strong>Kubernetes</strong> (K8s) provides the building blocks of a PaaS—but it’s not an all-inclusive PaaS. One of the things Kubernetes explicitly doesn’t do is provide a native CI/CD process.</p>
+<p>In open source parlance, Kubernetes doesn’t have an opinion on CI/CD—which is coder talk for they don’t force you into a solution or template for this component; this can be good or bad. After all, developers definitely have formed their own opinions in this space, and DevOps processes tend to be custom fit to the team that implements them.</p>
+<p>This is one of the reasons that we think Kubernetes has become such an inflection point — K8s knows what it wants to do and it’s extremely good at doing it. For everything else, the open source community always finds a way.</p>
+<p>One way that Kubernetes-based platforms such as Red Hat OpenShift make it easy to collaborate with the open source community— and readily deploy open source code into production environments —is via the Source-2-Image framework. In the following steps, you'll explore how Anne and her team can leverage such a framework to the benefit of her business.</p>
 <hr />
 
 
