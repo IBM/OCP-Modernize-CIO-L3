@@ -314,9 +314,10 @@
 <p>This module will make heavy use of <strong>GitHub</strong>, a ubiquitous tool in nearly every developer and programmer’s arsenal. Individuals, enterprise organizations, and open source community projects all use GitHub to share, deploy, and collaborate on code. Before getting started, make sure you have <a href="https://github.com/" target="_blank">signed up for a free GitHub account</a>. Once registered, you will be able to begin replicating (“forking”) project code from our lab repository into your own account — which we will then use to demonstrate OpenShift’s Source-2-Image capabilities for deploying applications via Dockerfiles (that are hosted on GitHub).</p>
 <hr />
 <ol>
-<li>
-<p>Open a web browser, log in to GitHub, and open the following IBM-operated repository: <a href="https://github.com/dpkshetty/oc-docker-s2i" target="_blank">https://github.com/dpkshetty/oc-docker-s2i</a></p>
-</li>
+<li>Open a web browser, log in to GitHub, and open the following IBM-operated repository: <a href="https://github.com/dpkshetty/oc-docker-s2i" target="_blank">https://github.com/dpkshetty/oc-docker-s2i</a></li>
+</ol>
+<hr />
+<ol start="2">
 <li>
 <p>Click the <strong>Fork</strong> icon (as shown). This will begin the process of replicating the code into your own repository.</p>
 <p>After executing a code fork, you should notice that the <code>oc-docker-s2i</code> repository is now available under your own GitHub account: in this example's case, <code>bienko/oc-docker-s2i</code>.</p>
@@ -330,9 +331,13 @@
 <p>From the main landing page of the OCP cluster web interface, locate the <strong>Administrator / Developer</strong> toggle button near the top-left of the page. You will use this toggle frequently over the course of the hands-on lab to cycle between Administrator and Developer perspectives (and privileges) within the OCP cluster.</p>
 <p>For now, make sure it is toggled to <strong>Administrator</strong>.</p>
 </li>
-<li>
-<p>From the tabs on the left of the page, locate <strong>Home</strong> and then drill down into <strong>Projects</strong>.</p>
-</li>
+</ol>
+<hr />
+<ol start="4">
+<li>From the tabs on the left of the page, locate <strong>Home</strong> and then drill down into <strong>Projects</strong>.</li>
+</ol>
+<hr />
+<ol start="5">
 <li>
 <p>We want to create a new Project for demonstrating OCP’s Source-2-Image capabilities, so from the top-right of the page click the <strong>Create Project</strong> button. Assign labels to the Project and then click <strong>Create</strong>.</p>
 <ul>
@@ -344,52 +349,65 @@
 </ol>
 <hr />
 <ol start="6">
-<li>
-<p>After creation of the s2i-project, toggle the perspective button in the top-left to <strong>Developer</strong>.</p>
-</li>
-<li>
-<p>Click the <strong>Topology</strong> tab from the left navigation bar. As expected, no resources have yet to be assigned.</p>
-</li>
-<li>
-<p>Verify that the Project is set to the same one you created as an administrator in Step 5 (<code>s2i-project</code>).</p>
-</li>
-<li>
-<p>Next we want to deploy our first application to the OCP cluster. From the left navigation bar, click <strong>+Add</strong>.</p>
-</li>
-<li>
-<p>OpenShift supports adding code, assets, and applications from a massive gamut of sources. From the +Add page, scroll down and locate the <strong>Git Repository</strong> section. Within this grouping is the field <strong>Import from Git</strong> — select this option to open a configuration page.</p>
-</li>
-<li>
-<p>For the <code>Git Repo URL</code>, switch back to the GitHub tab to your personal repository (the one we forked previously) and copy the URL into the OCP configuration page. The URL should look something like: <code>https://github.com/[your_account]/oc-docker-s2i</code></p>
-</li>
-<li>
-<p>Click the <strong>Show advanced Git options</strong> button just below the URL field. Enter <code>main</code> under <strong>Git reference</strong>.</p>
-</li>
-<li>
-<p>In the <strong>Context dir field</strong>, enter <code>/redhat</code> to specify the directory within the forked repository where the Dockerfile code is stored.</p>
-</li>
-<li>
-<p>Scroll down until you reach the <strong>General</strong> section. Here you can provide an <code>Application Name</code> and a unique <code>Name</code> that will be associated with the resource. Note that if an image already exists in OCP with the same name you will receive an error message — be sure to use a unique name.</p>
-</li>
-<li>
-<p>Further down you will reach the <strong>Resources</strong> section. Here, there are <em>two</em> options for the type of resource OCP will generate. Select the <code>DeploymentConfig</code> option.</p>
-</li>
+<li>After creation of the s2i-project, toggle the perspective button in the top-left to <strong>Developer</strong>.</li>
+</ol>
+<hr />
+<ol start="7">
+<li>Click the <strong>Topology</strong> tab from the left navigation bar. As expected, no resources have yet to be assigned.</li>
+</ol>
+<hr />
+<ol start="8">
+<li>Verify that the Project is set to the same one you created as an administrator in Step 5 (<code>s2i-project</code>).</li>
+</ol>
+<hr />
+<ol start="9">
+<li>Next we want to deploy our first application to the OCP cluster. From the left navigation bar, click <strong>+Add</strong>.</li>
+</ol>
+<hr />
+<ol start="10">
+<li>OpenShift supports adding code, assets, and applications from a massive gamut of sources. From the +Add page, scroll down and locate the <strong>Git Repository</strong> section. Within this grouping is the field <strong>Import from Git</strong> — select this option to open a configuration page.</li>
+</ol>
+<hr />
+<ol start="11">
+<li>For the <code>Git Repo URL</code>, switch back to the GitHub tab to your personal repository (the one we forked previously) and copy the URL into the OCP configuration page. The URL should look something like: <code>https://github.com/[your_account]/oc-docker-s2i</code></li>
+</ol>
+<hr />
+<ol start="12">
+<li>Click the <strong>Show advanced Git options</strong> button just below the URL field. Enter <code>main</code> under <strong>Git reference</strong>.</li>
+</ol>
+<hr />
+<ol start="13">
+<li>In the <strong>Context dir field</strong>, enter <code>/redhat</code> to specify the directory within the forked repository where the Dockerfile code is stored.</li>
+</ol>
+<hr />
+<ol start="14">
+<li>Scroll down until you reach the <strong>General</strong> section. Here you can provide an <code>Application Name</code> and a unique <code>Name</code> that will be associated with the resource. Note that if an image already exists in OCP with the same name you will receive an error message — be sure to use a unique name.</li>
+</ol>
+<hr />
+<ol start="15">
+<li>Further down you will reach the <strong>Resources</strong> section. Here, there are <em>two</em> options for the type of resource OCP will generate. Select the <code>DeploymentConfig</code> option.</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">RECORD THIS VALUE</p>
 <p>Record the name of the <em>alternative</em> resource type (hint: the one not labeled <code>DeploymentConfig</code>) to generate.</p>
 </div>
+<hr />
 <ol start="16">
-<li>
-<p>Make sure that the <strong>Create a route to the Application</strong> box is <em>enabled</em> before continuing.</p>
-</li>
-<li>
-<p>When satisfied, click the <strong>Create</strong> button.</p>
-</li>
+<li>Make sure that the <strong>Create a route to the Application</strong> box is <em>enabled</em> before continuing.</li>
+</ol>
+<hr />
+<ol start="17">
+<li>When satisfied, click the <strong>Create</strong> button.</li>
+</ol>
+<hr />
+<ol start="18">
 <li>
 <p>Your browser will redirect to the <strong>Topology</strong> tab, which will no longer be empty as before, but will now display a tile for the <code>s2i-app</code> we just configured. Click the center (OpenShift logo) of the tile to pull open an overview panel.</p>
 <p>From this panel you can peruse a number of details on the status and health of your application. If you’re quick enough, you may notice that the <strong>Builds</strong> category still shows that the application is still in the middle of being automatically deployed and orchestrated by OpenShift. In a few moments, that build order will resolve to <em>“complete.”</em> Likewise, containers are automatically provisioned to house and execute the code we deployed via GitHub.</p>
 </li>
+</ol>
+<hr />
+<ol start="19">
 <li>
 <p>Click the name of the application (as shown) to drill down into further details and to expose information on the pod(s) that it is running across.</p>
 <p>By clicking on the name of the <strong>DeploymentConfig</strong> (<code>s2i-app</code>), you are exposed to much more granular details on the status of the application. From this panel, you can modify nearly every aspect of how the containerized application is running on the OpenShift cluster, including how many replicas are available (we’ll experiment with this later), how resources are allocated, and so on.</p>
@@ -399,17 +417,20 @@
 <p class="admonition-title">RECORD THIS VALUE</p>
 <p>Under the <strong>DeploymentConfig</strong> details panel (right), there is a field <code>Update Strategy</code> which details how new app Builds are generated. Record the default value it is set to.</p>
 </div>
+<hr />
 <ol start="20">
-<li>
-<p>In order to execute instructions on the <code>s2i-app</code>, we’ll need to interface directly with the pod (container) it is running upon. From the tabs along the top of the panel, click <strong>Pods</strong>. When that page has loaded, click the <strong>Name</strong> of the pod (<code>s2i-app-1-2mqdb</code>, for example).</p>
-</li>
+<li>In order to execute instructions on the <code>s2i-app</code>, we’ll need to interface directly with the pod (container) it is running upon. From the tabs along the top of the panel, click <strong>Pods</strong>. When that page has loaded, click the <strong>Name</strong> of the pod (<code>s2i-app-1-2mqdb</code>, for example).</li>
+</ol>
+<hr />
+<ol start="21">
 <li>
 <p>Within the <strong>Pod Details</strong> panel, you have the option to further inspect the configuration and status of individual containers (pods) associated with the <code>s2i-project</code> deployment. To interface directly with the pod and issue commands, you can access the Web interface built-in console via the <strong>Terminal</strong> tab.</p>
 <p>The console can be used to issue commands to the pod in an identical way you would use any Linux / SSH interface.</p>
 </li>
-<li>
-<p>Issue the following command to inspect the running output of the pod processes, which is executing the code that you originally forked from GitHub:</p>
-</li>
+</ol>
+<hr />
+<ol start="22">
+<li>Issue the following command to inspect the running output of the pod processes, which is executing the code that you originally forked from GitHub:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ps aux <span class="p">|</span> grep sleep
 </code></pre></div>
@@ -422,32 +443,43 @@ Verify that the pod is running a `sleep infinity` process.
 <p><strong>GitHub Webhooks</strong> allow external services, such as OpenShift Container Platform, to be notified when certain events happen — like updates to application code. Amy’s team is continuously pushing updates to their application code base, and being able to automatically trigger updates to live applications when her developer teams commit new source code will greatly accelerate their responsiveness and agility.</p>
 <p>To automatically deploy a new pod when updates to the GitHub Dockerfile occur, you must first configure your GitHub repository with a webhook that OpenShift provides as part of the <strong>BuildConfig</strong>. This is best achieved by using the OpenShift web interface — so let’s continue using that.</p>
 </div>
+<hr />
 <ol start="23">
-<li>
-<p>With the <strong>Developer</strong> perspective still active, select the Builds tab (left side) and then click the name of the running application (<code>s2i-app</code>) you wish to modify. If there are other applications running in your environment, you may see multiple builds to select from.</p>
-</li>
+<li>With the <strong>Developer</strong> perspective still active, select the Builds tab (left side) and then click the name of the running application (<code>s2i-app</code>) you wish to modify. If there are other applications running in your environment, you may see multiple builds to select from.</li>
+</ol>
+<hr />
+<ol start="24">
 <li>
 <p>Within the <strong>BuildConfig Details</strong> panel, scroll down to the bottom of the page where you will find the Webhooks category. There are two classes of Webhooks that are available to you: <code>Generic</code> and <code>GitHub</code> types.</p>
 <p>You will need to store the <strong>GitHub webhook</strong> details for use within GitHub shortly. Use the <strong>Copy URL with Secret button</strong> in the right-most column of the GitHub row and then <em>store this on your notepad</em>.</p>
 </li>
-<li>
-<p>Return back to the open GitHub tab from earlier. From your <em>personal account</em> fork of the <code>oc-docker-s2i</code> repository, click the <strong>Settings</strong> tab as shown.</p>
-</li>
-<li>
-<p>From the <strong>Settings</strong> page, click the <strong>Webhooks</strong> tab (left). If you haven’t set up a webhook previously, this should display an empty page. Click the <strong>Add Webhook</strong> button.</p>
-</li>
-<li>
-<p>Into the <strong>Payload URL</strong> field, paste the URL captured in Step 24 into this box.</p>
-</li>
-<li>
-<p>Use the <strong>Content Type</strong> drop-down and correct the value to use <code>application/json</code> format.</p>
-</li>
-<li>
-<p>To prevent complications with SSL certificates, you must check the <code>DISABLE</code> field under <strong>SSL Verification</strong> category. However, this is not recommended in real-world scenarios.</p>
-</li>
-<li>
-<p>When satisfied, click the <strong>Add Webhook</strong> button.</p>
-</li>
+</ol>
+<hr />
+<ol start="25">
+<li>Return back to the open GitHub tab from earlier. From your <em>personal account</em> fork of the <code>oc-docker-s2i</code> repository, click the <strong>Settings</strong> tab as shown.</li>
+</ol>
+<hr />
+<ol start="26">
+<li>From the <strong>Settings</strong> page, click the <strong>Webhooks</strong> tab (left). If you haven’t set up a webhook previously, this should display an empty page. Click the <strong>Add Webhook</strong> button.</li>
+</ol>
+<hr />
+<ol start="27">
+<li>Into the <strong>Payload URL</strong> field, paste the URL captured in Step 24 into this box.</li>
+</ol>
+<hr />
+<ol start="28">
+<li>Use the <strong>Content Type</strong> drop-down and correct the value to use <code>application/json</code> format.</li>
+</ol>
+<hr />
+<ol start="29">
+<li>To prevent complications with SSL certificates, you must check the <code>DISABLE</code> field under <strong>SSL Verification</strong> category. However, this is not recommended in real-world scenarios.</li>
+</ol>
+<hr />
+<ol start="30">
+<li>When satisfied, click the <strong>Add Webhook</strong> button.</li>
+</ol>
+<hr />
+<ol start="31">
 <li>
 <p>Your Web browser will be returned to the Webhooks panel, where the newly-generated webhook (denoted by what looks like an HTTPs address) will be listed. <strong>Click</strong> the webhook’s <code>URL</code> to inspect it further.</p>
 <p>Under the <strong>Manage Webhook</strong> panel, click the <strong>Recent Deliveries</strong> tab to validate that the webhook is working properly. There should be a green checkmark to the left of an alphanumeric string (representing a recent request or response between the webhook and OpenShift Container Platform on PowerVS).</p>
@@ -457,18 +489,21 @@ Verify that the pod is running a `sleep infinity` process.
 <p class="admonition-title">RECORD THIS VALUE</p>
 <p>Record the value of <code>content-type</code> returned under the webhook’s <strong>Request Header</strong>.</p>
 </div>
+<hr />
 <ol start="32">
 <li>
 <p>Your next step is to verify that the webhook is working as intended: monitoring changes committed to the source code in GitHub and propagating those versioning updates into the live application running via OpenShift. This will simulate an automated and agile workflow between Amy’s team of developers and the live applications supporting other areas of her business.</p>
 <p>To test the webhook, first return to the main landing page of your <em>personal account</em> replica of the <code>oc-docker-s2i</code> repository. It is critical that in the steps to follow you are editing your <em>own</em> personal fork and not the main IBM branch that you originally replicated the code from.</p>
 <p><strong>Click</strong> the <code>redhat</code> directory and then the <code>Dockerfile</code> asset from the subsequent page to view the code base of our running application.</p>
 </li>
-<li>
-<p>With the Dockerfile selected, click the <strong>pencil icon</strong> (as shown) to edit the content of the file.</p>
-</li>
-<li>
-<p><strong>Comment out</strong> the following line (originally line 5 in the Dockerfile) by inserting a <code>#</code> at the start of the line:</p>
-</li>
+</ol>
+<hr />
+<ol start="33">
+<li>With the Dockerfile selected, click the <strong>pencil icon</strong> (as shown) to edit the content of the file.</li>
+</ol>
+<hr />
+<ol start="34">
+<li><strong>Comment out</strong> the following line (originally line 5 in the Dockerfile) by inserting a <code>#</code> at the start of the line:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># CMD [“/bin/bash”, “-c”, “sleep infinity”]</span>
 </code></pre></div>
@@ -484,26 +519,36 @@ Verify that the pod is running a `sleep infinity` process.
 <p>Scroll down until you reach the <strong>Commit Changes</strong> panel. Here you can title your <em>code commit</em> and add a description of the changes made. Ensure that the <strong>Commit directly to the main branch</strong> button is selected (this will update only your personal replica — not the IBM branch).</p>
 <p>When satisfied, click <strong>Commit Changes</strong>.</p>
 </li>
-<li>
-<p>Navigate back to your OpenShift Container Platform dashboard. Toggle the perspective changer to the <strong>Administrator</strong> view.</p>
-</li>
+</ol>
+<hr />
+<ol start="36">
+<li>Navigate back to your OpenShift Container Platform dashboard. Toggle the perspective changer to the <strong>Administrator</strong> view.</li>
+</ol>
+<hr />
+<ol start="37">
 <li>
 <p>From the <strong>Builds</strong> tab, drill down into <strong>Builds</strong>.</p>
 <p>Under the Builds panel, you will likely see multiple versions of the <code>s2i-app</code> codebase. Likely the changes you committed to the Dockerfile on GitHub will still be in the process of propagating to OCP — which is reflected by the new build underway (<code>Running</code>) in the screenshot shown here. When this status changes to <code>Complete</code>, a new build of the application is ready and has been pushed to the live version of the application. All done automatically via OpenShift’s Source-2-Image framework!</p>
 </li>
-<li>
-<p>When the <strong>Status</strong> of the latest build of your application reads as <code>Complete</code>, toggle the perspective changer back to the <strong>Developer</strong> view.</p>
-</li>
-<li>
-<p>From the Developer perspective, click the <strong>Topology</strong> tab from the left-side menu bar. Once again you will be presented with a view of the <code>s2i-app</code> deployment. Click the center of the application to inspect it in detail.</p>
-</li>
+</ol>
+<hr />
+<ol start="38">
+<li>When the <strong>Status</strong> of the latest build of your application reads as <code>Complete</code>, toggle the perspective changer back to the <strong>Developer</strong> view.</li>
+</ol>
+<hr />
+<ol start="39">
+<li>From the Developer perspective, click the <strong>Topology</strong> tab from the left-side menu bar. Once again you will be presented with a view of the <code>s2i-app</code> deployment. Click the center of the application to inspect it in detail.</li>
+</ol>
+<hr />
+<ol start="40">
 <li>
 <p>Under the Builds category, you can see a replica of the completed builds viewed earlier under the Administrator perspective. Your next objective will be to verify that the code base of the applications has been updated to mirror the code changes we committed to GitHub earlier.</p>
 <p><strong>Click</strong> the <em>name</em> of the running Pod as shown.</p>
 </li>
-<li>
-<p>As before, click on the <strong>Terminal</strong> tab and enter:</p>
-</li>
+</ol>
+<hr />
+<ol start="41">
+<li>As before, click on the <strong>Terminal</strong> tab and enter:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ps aux <span class="p">|</span> grep sleep
 </code></pre></div>
