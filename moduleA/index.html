@@ -640,6 +640,8 @@
 <ol start="42">
 <li>
 <p>In your web browser, open the OpenShift cluster dashboard and switch to the <strong>Administrator</strong> perspective. From the main landing page, drill down into <strong>Home</strong> &gt; <strong>Projects</strong>.</p>
+<p><img alt="" loading="lazy" src="../_attachments/40.png" width="600" />
+<img alt="" loading="lazy" src="../_attachments/41.png" width="600" /></p>
 <p>Click the <strong>Create Project</strong> button (located in the top-right corner) and assign it the name <code>pyflask-demo</code>, then click <strong>Create</strong> when satisfied.</p>
 </li>
 </ol>
@@ -647,6 +649,7 @@
 <ol start="43">
 <li>
 <p>Verify that the project has been created by returning to the <strong>Projects</strong> screen and searching for the project by name.</p>
+<p><img alt="" loading="lazy" src="../_attachments/42.png" width="600" /></p>
 <p>Your next step will be to replicate a simple pyFlask application— consisting of three API endpoints (root, version, and test) —which is hosted at the following repo: <a href="https://github.com/ocp-power-demos/s2i-pyflask-demo" target="_blank">https://github.com/ocp-power-demos/s2i-pyflask-demo</a></p>
 </li>
 </ol>
@@ -662,6 +665,7 @@
 <ol start="45">
 <li>
 <p>Return to the OpenShift cluster dashboard and switch to the <strong>Developer</strong> perspective.</p>
+<p><img alt="" loading="lazy" src="../_attachments/43.png" width="600" /></p>
 <p>From the taskbar on the left, select the <strong>+Add</strong> button and then click the <strong>From Git</strong> option (located under the <em>Git Repository</em> category).</p>
 </li>
 </ol>
@@ -671,6 +675,7 @@
 <p><strong>Paste</strong> the <code>URL</code> of your <em>personal</em> GitHub account’s fork of the <code>s2i-pyflask</code> application into the <strong>Git Repo URL</strong> field. OpenShift will automatically validate the URL and the Builder Image should display as a Python image.</p>
 <p>Click the <strong>Show Advanced Git Options</strong> toggle.</p>
 <p>For the <strong>Git Reference</strong> field, enter the value <code>main</code>.</p>
+<p><img alt="" loading="lazy" src="../_attachments/44.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -686,6 +691,7 @@
 <li>
 <p>Scrolling further down under <strong>Advanced Options</strong>, ensure that you <em>enable</em> the <code>Create a Route</code> button.</p>
 <p>Click the <code>Show advanced Routing options</code> toggle to expose additional options.</p>
+<p><img alt="" loading="lazy" src="../_attachments/45.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -715,6 +721,8 @@
 <li>
 <p>After the Build is completed, find the <strong>Routes</strong> section at the bottom of the panel and click the <code>Location:</code> address to be directed to a live view of the running application. Disregard any <em>"Connection is not private"</em> warnings that your browser may produce and continue to the destination.</p>
 <p>A new tab should open within your web browser displaying a message identical to the one presented in the following screenshot.</p>
+<p><img alt="" loading="lazy" src="../_attachments/46.png" width="600" />
+<img alt="" loading="lazy" src="../_attachments/47.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -736,6 +744,7 @@
 <p>Return to the OpenShift cluster dashboard and verify that you are using the <strong>Developer</strong> perspective.</p>
 <p>Drill down into the <strong>Builds</strong> tab, in which you should see an <code>s2i-pyflask</code> service.</p>
 <p><strong>Click</strong> the <em>name</em> of the service.</p>
+<p><img alt="" loading="lazy" src="../_attachments/48.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -743,6 +752,7 @@
 <li>
 <p>From the service details panel that opens, scroll down to the bottom of the page and locate the <strong>Webhooks</strong> section. There are two types— <em>Generic</em> and <em>GitHub</em> —which are displayed.</p>
 <p>At the far right of the <em>GitHub</em> row, click the <strong>Copy URL with Secret</strong> button.</p>
+<p><img alt="" loading="lazy" src="../_attachments/49.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -755,11 +765,17 @@
 </ol>
 <hr />
 <ol start="60">
-<li>You might see existing <strong>Webhooks</strong> on this page already. Ignore any pre-existing Webhooks and generate a new one using the <strong>Add Webhook</strong> button.</li>
+<li>
+<p>You might see existing <strong>Webhooks</strong> on this page already. Ignore any pre-existing Webhooks and generate a new one using the <strong>Add Webhook</strong> button.</p>
+<p><img alt="" loading="lazy" src="../_attachments/50.png" width="600" /></p>
+</li>
 </ol>
 <hr />
 <ol start="61">
-<li>Under the <strong>Payload URL</strong> field, paste the <em>address</em> that was copied in Step 57.</li>
+<li>
+<p>Under the <strong>Payload URL</strong> field, paste the <em>address</em> that was copied in Step 57.</p>
+<p><img alt="" loading="lazy" src="../_attachments/51.png" width="600" /></p>
+</li>
 </ol>
 <hr />
 <ol start="62">
@@ -774,7 +790,7 @@
 <li>
 <p>When satisfied, click <strong>Add Webhook</strong>.</p>
 <p>The web browser will redirect back to the Webhooks page. It will take a few moments for the webhook to initialize and make its first deliveries to the OpenShift cluster. You will have confirmation that the webhook is working properly once a green checkmark and a <code>Last delivery was successful</code> statement appear on screen.</p>
-<details class="warning">
+<details class="note">
 <summary>WEBHOOK FAILS TO INITIALIZE</summary>
 <p>If the Webhook fails to deliver packets, you may need to manually edit the Webhook configuration and confirm that the SSL verification option has been <em>DISABLED</em>. Do so by navigating to <strong>Webhooks</strong> &gt; <strong>Edit Webhook</strong> from the GitHub dashboard. Once disabled, click <strong>Update Webhook</strong> and then give the Webhook a minute or two for reinitialization.</p>
 </details>
