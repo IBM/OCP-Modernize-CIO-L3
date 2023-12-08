@@ -443,8 +443,7 @@
 <ol start="22">
 <li>
 <p>Click on the <strong>Location:</strong> URL located at the bottom of the panel, under the <em>Routes</em> section, to launch a new web browser tab where the live application is running.</p>
-<p>Now that you have successfully deployed the application using the existing Quay.io image, we are ready to demonstrate how to scale and rollback the application.</p>
-<p>Your next step will be to scale the application using replicas of the pod deployed in the previous section. The creation of multiple replicas of a pod will help Amy and her team to ensure that their application’s deployment always has the available capacity (and resources) to meet the need of any increased demand for the application within the company.</p>
+<p>Now that you have successfully deployed the application using the existing Quay.io image, we are ready to demonstrate how to scale and rollback the application. Your next step will be to scale the application using replicas of the pod deployed in the previous section. The creation of multiple replicas of a pod will help Amy and her team to ensure that their application’s deployment always has the available capacity (and resources) to meet the need of any increased demand for the application within the company.</p>
 </li>
 </ol>
 <hr />
@@ -459,8 +458,7 @@
 <li>
 <p>Take note of the blue circular ring, which describes the number of replica pods currently supporting the live application.</p>
 <p><img alt="" loading="lazy" src="../_attachments/58.png" width="600" /></p>
-<p><strong>Click</strong> on the <em>up arrow</em> (to the right of the circle) <strong>4 times</strong> to scale the app to a total of 5 replicas.</p>
-<p>Scaling will begin immediately, but will need a few moments to complete. Wait until the count inside the blue circles reads <code>5 Pods</code> before continuing.</p>
+<p><strong>Click</strong> on the <em>up arrow</em> (to the right of the circle) <strong>4 times</strong> to scale the app to a total of 5 replicas. Scaling will begin immediately, but will need a few moments to complete. Wait until the count inside the blue circles reads <code>5 Pods</code> before continuing.</p>
 </li>
 </ol>
 <hr />
@@ -525,8 +523,7 @@
 <ol start="34">
 <li>
 <p>The text rendered on-screen should display <code>VERSION 2.0</code>, which confirms for Amy and the team (and yourself) that the update was successfully pushed to the live deployment.</p>
-<p>When performing a rollback, you can see references to old replicas and new replicas. In this project, the old replicas are the original 5 pods you deployed in the previous steps when you scaled the application. The new replicas come from newly created pods with the fresh image.</p>
-<p>All pods are owned by their respective deployment. The deployment manages these two sets of pods with a resource called a <em>ReplicaSet</em>.</p>
+<p>When performing a rollback, you can see references to old replicas and new replicas. In this project, the old replicas are the original 5 pods you deployed in the previous steps when you scaled the application. The new replicas come from newly created pods with the fresh image. All pods are owned by their respective deployment. The deployment manages these two sets of pods with a resource called a <em>ReplicaSet</em>.</p>
 </li>
 </ol>
 <hr />
