@@ -490,7 +490,7 @@
 <p>From the <strong>Deploy Image</strong> page, scroll down and locate the <em>Image</em> section. Within the <strong>Image name from external registry</strong> field, change the address from <code>v1</code> to <code>v2</code>. <strong>Save</strong> your changes at the bottom of the page.</p>
 <p><img alt="" loading="lazy" src="../_attachments/60.png" width="600" /></p>
 <p>Your browser will then be taken back to the Resources view. Some patience is required as you see the page gradually update and the changes roll across the various replica pods. Over time you will see “View all 8” or “View all 10” pods, and so on.</p>
-<p>Clicking on <strong>View All</strong> as done previously (Step 25), you'll see the old pods (representing the <code>v1</code> deployment of the application) being terminated and new pods (representing <code>v2</code>) being created.</p>
+<p>Clicking on <strong>View All</strong> as done previously (Step 25), you'll see the old pods (representing the <code>v1</code> deployment) being terminated and new pods (representing <code>v2</code>) being created.</p>
 <p><strong>Wait</strong> for all old pods to <em>terminate</em> and new pods to be in a <em>Running</em> state before continuing (a total of 5 pods will remain by the time this process concludes).</p>
 </li>
 </ol>
@@ -525,7 +525,7 @@
 <ol start="34">
 <li>
 <p>The text rendered on-screen should display <code>VERSION 2.0</code>, which confirms for Amy and the team (and yourself) that the update was successfully pushed to the live deployment.</p>
-<p>When performing a rollback, you can see references to old replicas and new replicas. In this project, the old replicas are the original 5 pods you deployed in the previous steps when you scaled the application. The new replicas come from the newly created pods with the new image.</p>
+<p>When performing a rollback, you can see references to old replicas and new replicas. In this project, the old replicas are the original 5 pods you deployed in the previous steps when you scaled the application. The new replicas come from newly created pods with the fresh image.</p>
 <p>All pods are owned by their respective deployment. The deployment manages these two sets of pods with a resource called a <em>ReplicaSet</em>.</p>
 </li>
 </ol>
@@ -544,7 +544,8 @@
 <hr />
 <ol start="37">
 <li>
-<p>To undo (rollback) a deployment from <code>v2</code> back to <code>v1</code>, <strong>click</strong> the <em>three stacked dots</em> icon (at the far right of 0 of 0 pods) to toggle open a list of commands. Select the <strong>Rollback</strong> option to execute a version change back to <code>v1</code>.</p>
+<p>To undo (rollback) a deployment from <code>v2</code> back to <code>v1</code>, <strong>click</strong> the <em>three stacked dots</em> icon (at the far right of 0 of 0 pods) to toggle open a list of commands.</p>
+<p>Select the <strong>Rollback</strong> option to execute a version change back to <code>v1</code>.</p>
 <p><img alt="" loading="lazy" src="../_attachments/64.png" width="600" /></p>
 </li>
 </ol>
@@ -554,7 +555,7 @@
 </ol>
 <hr />
 <ol start="39">
-<li>Verify that the <em>ReplicaSet</em> of 5 pods are running <code>v1</code> of the application, using the same steps as before: either by checking the <em>YAML</em> tab  (Steps 29–31) or <em>Topology</em> page (Steps 32–34).</li>
+<li><strong>Verify</strong> that the <em>ReplicaSet</em> of 5 pods are running <code>v1</code> of the application, using the same steps as before: either by checking the <em>YAML</em> tab  (Steps 29–31) or <em>Topology</em> page (Steps 32–34).</li>
 </ol>
 <hr />
 <h1 id="_1"></h1>
