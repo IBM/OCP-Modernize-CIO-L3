@@ -314,9 +314,11 @@
 <p>This module will make heavy use of <strong>GitHub</strong>, a ubiquitous tool in nearly every developer and programmer’s arsenal. Individuals, enterprise organizations, and open source community projects all use GitHub to share, deploy, and collaborate on code. Before getting started, make sure you have <a href="https://github.com/" target="_blank">signed up for a free GitHub account</a>. Once registered, you will be able to begin replicating (“forking”) project code from our lab repository into your own account — which you will then use to demonstrate OpenShift’s Source-2-Image capabilities for deploying applications via Dockerfiles (that are hosted on GitHub).</p>
 <hr />
 <ol>
-<li>Open a web browser, log in to GitHub, and open the following IBM-operated repository: <a href="https://github.com/dpkshetty/oc-docker-s2i" target="_blank">https://github.com/dpkshetty/oc-docker-s2i</a></li>
-</ol>
+<li>
+<p>Open a web browser, log in to GitHub, and open the following IBM-operated repository: <a href="https://github.com/dpkshetty/oc-docker-s2i" target="_blank">https://github.com/dpkshetty/oc-docker-s2i</a></p>
 <p><img alt="" loading="lazy" src="../_attachments/12.png" width="600" /></p>
+</li>
+</ol>
 <hr />
 <ol start="2">
 <li>
@@ -331,9 +333,9 @@
 <li>
 <p>From the main landing page of the OCP cluster web interface, locate the <strong>Administrator / Developer</strong> toggle button near the top-left of the page. You will use this toggle frequently over the course of the hands-on lab to cycle between Administrator and Developer perspectives (and privileges) within the OCP cluster.</p>
 <p>For now, make sure it is toggled to <strong>Administrator</strong>.</p>
+<p><img alt="" loading="lazy" src="../_attachments/13.png" width="600" /></p>
 </li>
 </ol>
-<p><img alt="" loading="lazy" src="../_attachments/13.png" width="600" /></p>
 <hr />
 <ol start="4">
 <li>From the tabs on the left of the page, locate <strong>Home</strong> and then drill down into <strong>Projects</strong>.</li>
@@ -350,13 +352,16 @@
 </li>
 </ol>
 <p>Once satisfied, click <strong>Create</strong> to confirm.</p>
-<p><img alt="" loading="lazy" src="../_attachments/14.png" width="600" />
-<img alt="" loading="lazy" src="../_attachments/15.png" width="600" /></p>
+<div class="highlight"><pre><span></span><code>![](_attachments/14.png){: loading=lazy width=&quot;300&quot;}
+![](_attachments/15.png){: loading=lazy width=&quot;300&quot;}
+</code></pre></div>
 <hr />
 <ol start="6">
-<li>After creation of the s2i-project, toggle the perspective button in the top-left to <strong>Developer</strong>.</li>
-</ol>
+<li>
+<p>After creation of the s2i-project, toggle the perspective button in the top-left to <strong>Developer</strong>.</p>
 <p><img alt="" loading="lazy" src="../_attachments/16.png" width="600" /></p>
+</li>
+</ol>
 <hr />
 <ol start="7">
 <li>Click the <strong>Topology</strong> tab from the left navigation bar. As expected, no resources have yet to be assigned.</li>
@@ -371,14 +376,18 @@
 </ol>
 <hr />
 <ol start="10">
-<li>OpenShift supports adding code, assets, and applications from a massive gamut of sources. From the +Add page, scroll down and locate the <strong>Git Repository</strong> section. Within this grouping is the field <strong>Import from Git</strong> — select this option to open a configuration page.</li>
-</ol>
+<li>
+<p>OpenShift supports adding code, assets, and applications from a massive gamut of sources. From the +Add page, scroll down and locate the <strong>Git Repository</strong> section. Within this grouping is the field <strong>Import from Git</strong> — select this option to open a configuration page.</p>
 <p><img alt="" loading="lazy" src="../_attachments/17.png" width="600" /></p>
+</li>
+</ol>
 <hr />
 <ol start="11">
-<li>For the <strong>Git Repo URL</strong>, switch back to the GitHub tab to your personal repository (the one you forked previously) and copy the URL into the OCP configuration page. The URL should look something like: <code>https://github.com/[your_account]/oc-docker-s2i</code></li>
-</ol>
+<li>
+<p>For the <strong>Git Repo URL</strong>, switch back to the GitHub tab to your personal repository (the one you forked previously) and copy the URL into the OCP configuration page. The URL should look something like: <code>https://github.com/[your_account]/oc-docker-s2i</code></p>
 <p><img alt="" loading="lazy" src="../_attachments/18.png" width="600" /></p>
+</li>
+</ol>
 <hr />
 <ol start="12">
 <li>Click the <strong>Show advanced Git options</strong> button just below the URL field. Enter <code>main</code> under <strong>Git reference</strong>.</li>
@@ -389,9 +398,11 @@
 </ol>
 <hr />
 <ol start="14">
-<li>Scroll down until you reach the <strong>General</strong> section. Here you can provide an <code>Application Name</code> and a unique <code>Name</code> that will be associated with the resource. Note that if an image already exists in OCP with the same name you will receive an error message — be sure to use a unique name.</li>
-</ol>
+<li>
+<p>Scroll down until you reach the <strong>General</strong> section. Here you can provide an <code>Application Name</code> and a unique <code>Name</code> that will be associated with the resource. Note that if an image already exists in OCP with the same name you will receive an error message — be sure to use a unique name.</p>
 <p><img alt="" loading="lazy" src="../_attachments/19.png" width="600" /></p>
+</li>
+</ol>
 <hr />
 <ol start="15">
 <li>
@@ -416,15 +427,14 @@
 </ol>
 <hr />
 <ol start="18">
-<li>Your browser will redirect to the <strong>Topology</strong> tab, which will no longer be empty as before, but will now display a tile for the <code>oc-docker-s2i</code> you just configured.</li>
-</ol>
+<li>
+<p>Your browser will redirect to the <strong>Topology</strong> tab, which will no longer be empty as before, but will now display a tile for the <code>oc-docker-s2i</code> you just configured.</p>
 <p><img alt="" loading="lazy" src="../_attachments/20.png" width="600" /></p>
-<div class="highlight"><pre><span></span><code>It will take a minute or two for the container build and deployment to complete. Wait until you see a circular green checkmark icon, which indicates `Build Ready`, to appear next to the application tile before continuing
-
-Click the **rectangular icon** containing text similar to `(DC) oc-docker-s2i` (your exact naming may differ), located just below the OpenShift logo at the center of the tile. Doing so will pull open an overview panel along the right side of the web interface.
-
-From this panel you can peruse a number of details on the status and health of your application. If you’re quick enough, you may notice that the **Builds** category still shows that the application is still in the middle of being automatically deployed and orchestrated by OpenShift. In a few moments, that build order will resolve to *“complete.”* Likewise, containers are automatically provisioned to house and execute the code you deployed via GitHub.
-</code></pre></div>
+<p>It will take a minute or two for the container build and deployment to complete. Wait until you see a circular green checkmark icon, which indicates <code>Build Ready</code>, to appear next to the application tile before continuing</p>
+<p>Click the <strong>rectangular icon</strong> containing text similar to <code>(DC) oc-docker-s2i</code> (your exact naming may differ), located just below the OpenShift logo at the center of the tile. Doing so will pull open an overview panel along the right side of the web interface.</p>
+<p>From this panel you can peruse a number of details on the status and health of your application. If you’re quick enough, you may notice that the <strong>Builds</strong> category still shows that the application is still in the middle of being automatically deployed and orchestrated by OpenShift. In a few moments, that build order will resolve to <em>“complete.”</em> Likewise, containers are automatically provisioned to house and execute the code you deployed via GitHub.</p>
+</li>
+</ol>
 <hr />
 <ol start="19">
 <li>From within the overview panel along the right side of the interface, click the <strong>name</strong> of the application (<code>oc-docker-s2i</code>, as shown) to drill down into further details and to expose information on the pod(s) that it is running across.</li>
