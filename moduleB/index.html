@@ -309,6 +309,225 @@
 
 <h1 id="module-b-working-graphically-with-red-hat-openshift"><strong>Module B</strong>: Working graphically with Red Hat OpenShift</h1>
 <hr />
+<p>Amy's has a mandate to increase the productivity and output of her developers and programmers. This is precisely the reason why Stacked Corp. chose to make the investment in a platform such as Red Hat OpenShift on Power Systems; but in turn, the company expects to see measurable gains across these metrics in order to justify the expense of the investment.</p>
+<p>Ahead, you will learn (alongside Amy's team) how to manage a basic application's lifecycle via OpenShift (OCP): how to create and deploy an application from an existing Docker image, scale it according to workload demands, update it to a newer version, and finally rollback the application to a previous version.</p>
+<p>You will tackle these challenges using two different approaches:</p>
+<ul>
+<li><strong>Module B</strong>: the <em>graphical</em> interface method</li>
+<li><strong>Module C</strong>: the <em>programmatic</em> method</li>
+</ul>
+<p>The first step will be the creation of an application within OpenShift Container Platform from an existing image hosted on a <strong>Red Hat Quay.io</strong> repository. <a href="https://quay.io/" target="_blank">Quay.io</a> is a Red Hat-owned registry for containerized images, providing a useful alternative to DockerHub for hosting images and code. In this module, we will be performing these operations <em>graphically</em> using the web interface provided by Red Hat OpenShift.</p>
+<hr />
+<ol>
+<li>Open the main dashboard of the OpenShift web interface.</li>
+</ol>
+<hr />
+<ol start="2">
+<li>Log in to your OCP cluster by clicking <strong>htpasswd</strong> and then supplying the account name (<code>cecuser</code>) and password credentials.</li>
+</ol>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">SOUND FAMILIAR?</p>
+<p>The steps for setting up a Project will be reminiscent of what you did in Module A. Don’t worry — the tasks covered will deviate shortly!</p>
+</div>
+<hr />
+<ol start="3">
+<li>
+<p>From the main landing page of the OCP cluster web interface, locate the <strong>Administrator / Developer</strong> toggle button near the top-left of the page. You will use this toggle frequently over the course of the hands-on lab to cycle between Administrator and Developer perspectives (and privileges) within the OCP cluster.</p>
+<p>For now, make sure it is toggled to <strong>Administrator</strong>.</p>
+</li>
+</ol>
+<hr />
+<ol start="4">
+<li>From the tabs on the left of the page, locate <strong>Home</strong> and then drill down into <strong>Projects</strong>.</li>
+</ol>
+<hr />
+<ol start="5">
+<li>
+<p>Create a new <strong>Project</strong> for demonstrating OCP’s Source-2-Image capabilities: from the top-right of the page, click the <strong>Create Project</strong> button.</p>
+<p>Assign the following values to the Project and then click <strong>Create</strong>:</p>
+<div class="highlight"><pre><span></span><code>- *Name:* set to `mypyflask-project`
+- *Display name:* set to `mypyflask-project`
+- *Description:* set to a description of your liking
+</code></pre></div>
+</li>
+</ol>
+<hr />
+<ol start="6">
+<li>After creation of the <code>mypyflask-project</code>, toggle the perspective button in the top-left to <strong>Developer</strong>.</li>
+</ol>
+<hr />
+<ol start="7">
+<li>Click the <strong>Topology</strong> tab from the left navigation bar. As expected, no resources have yet to be assigned.</li>
+</ol>
+<hr />
+<ol start="8">
+<li>Verify that the <em>Project</em> is set to the same one you created as an administrator in Step 5 (<code>mypyflask-project</code>).</li>
+</ol>
+<hr />
+<ol start="9">
+<li>Deploy your first application to the OCP cluster. From the left navigation bar, click <strong>+Add</strong>.</li>
+</ol>
+<hr />
+<ol start="10">
+<li>From the list of available sources, use the <strong>Container Images</strong> category.</li>
+</ol>
+<hr />
+<ol start="11">
+<li>
+<p>Pull code from an image hosted within a Red Hat Quay.io repository: under the <strong>Deploy Image</strong> page, supply the following address under the <strong>Image name from external registry</strong> field:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>quay.io/dpkshetty/pyflask:v1
+</code></pre></div>
+</li>
+</ol>
+<hr />
+<ol start="12">
+<li>Scroll down until you reach the <strong>General</strong> section. Here you can provide an <em>Application Name</em> (<code>mypyflask-app</code>) and a unique <em>Name</em> (<code>mypyflask-app</code>) that will be associated with the resource. Note that if an image already exists in OCP with the same name you will receive an error message — be sure to use a unique name.</li>
+</ol>
+<hr />
+<ol start="13">
+<li>Further down you will reach the <strong>Resources</strong> section. Here, there are two options for the type of resource OCP will generate. Select the <code>Deployment</code> option.</li>
+</ol>
+<hr />
+<ol start="14">
+<li>Make sure that the <strong>Create a route</strong> to the application box is <em>enabled</em> before continuing.</li>
+</ol>
+<hr />
+<ol start="15">
+<li>Click the <strong>Show advanced Routing options</strong> button to expose additional settings.</li>
+</ol>
+<hr />
+<ol start="16">
+<li>Ensure that the <strong>Target Port</strong> field is set to <code>8080</code>.</li>
+</ol>
+<hr />
+<ol start="17">
+<li><em>Enable</em> the <strong>Secure Route</strong> option.</li>
+</ol>
+<hr />
+<ol start="18">
+<li>Set the <strong>TLS Termination</strong> field to <code>Edge</code>.</li>
+</ol>
+<hr />
+<ol start="19">
+<li>Set the <strong>Insecure Traffic</strong> field to <code>None</code>.</li>
+</ol>
+<hr />
+<ol start="20">
+<li>
+<p>When satisfied, click the <strong>Create</strong> button to continue.</p>
+<p>You can inspect the OpenShift cluster using the Web graphical user interface to verify that the application deployment is underway. From the <strong>Topology</strong> page, you can view the pod deployment which is underway. It will take several moments for the pod to be initialized and brought to a <em>Running</em> state.</p>
+</li>
+</ol>
+<hr />
+<ol start="21">
+<li>From the <strong>Topology</strong> page, click on the <strong>rectangular icon</strong> containing text similar to <code>(DC) mypyflask-app</code> (your exact naming may differ), located just below the OpenShift logo at the center of the tile. Doing so will pull open an overview panel along the right side of the web interface.</li>
+</ol>
+<hr />
+<ol start="22">
+<li>
+<p>Click on the <strong>Location:</strong> URL located at the bottom of the panel, under the <em>Routes</em> section, to launch a new web browser tab where the live application is running.</p>
+<p>Now that you have successfully deployed the application using the existing Quay.io image, we are ready to demonstrate how to scale and rollback the application.</p>
+<p>Your next step will be to scale the application using replicas of the pod deployed in the previous section. The creation of multiple replicas of a pod will help Amy and her team to ensure that their application’s deployment always has the available capacity (and resources) to meet the need of any increased demand for the application within the company.</p>
+</li>
+</ol>
+<hr />
+<ol start="23">
+<li>Return to the <strong>Topology</strong> page from Step 21, select the application's name as before, and then drill down into the <strong>Details</strong> tab along the right-hand side of the interface.</li>
+</ol>
+<hr />
+<ol start="24">
+<li>
+<p>Take note of the blue circular ring, which describes the number of replica pods currently supporting the live application.</p>
+<p><strong>Click</strong> on the <em>up arrow</em> (to the right of the circle) <strong>4 times</strong> to scale the app to a total of 5 replicas.</p>
+<p>Scaling will begin immediately, but will need a few moments to complete. Wait until the count inside the blue circles reads <code>5 Pods</code> before continuing.</p>
+</li>
+</ol>
+<hr />
+<ol start="25">
+<li>
+<p>Once you have verified that 5 replica pods are running, click the <strong>Resources</strong> tab. Just to the right of the <em>Pods</em> category is the <strong>View All</strong> button — click this.</p>
+<p>Your browser will be directed to the <em>Deployment</em> page, with the <em>Pods</em> tab pre-selected. From this screen you can inspect at-a-glance details on all (5) pod replicas running within the OpenShift cluster.</p>
+</li>
+</ol>
+<hr />
+<ol start="26">
+<li>Click on the <strong>Deployments</strong> link. Your browser will be redirected to a <em>Deployment</em> overview showing the <code>mypyflask-app</code> and <code>pod</code> status.</li>
+</ol>
+<hr />
+<ol start="27">
+<li>
+<p>At the far right of the table, locate the <em>three stacked dots</em> and <strong>click</strong> it to pull down a menu of options.</p>
+<p>Select the <strong>Edit mypyflask-app</strong> option.</p>
+</li>
+</ol>
+<hr />
+<ol start="28">
+<li>
+<p>From the <strong>Deploy Image</strong> page, scroll down and locate the <em>Image</em> section. Within the <strong>Image name from external registry</strong> field, change the address from <code>v1</code> to <code>v2</code>. <strong>Save</strong> your changes at the bottom of the page.</p>
+<p>Your browser will then be taken back to the Resources view. Some patience is required as you see the page gradually update and the changes roll across the various replica pods. Over time you will see “View all 8” or “View all 10” pods, and so on.</p>
+<p>Clicking on View All as done previously (Step 25), you'll see the old pods (representing the <code>v1</code> deployment of the application) being terminated and new pods (representing <code>v2</code>) being created.</p>
+<p><strong>Wait</strong> for all old pods to <em>terminate</em> and new pods to be in a <em>Running</em> state before continuing (a total of 5 pods will remain by the time this process concludes).</p>
+</li>
+</ol>
+<hr />
+<ol start="29">
+<li>One way to verify that the new pods are in fact running the updated application is to check the pod <em>Details</em> panel — do so by <strong>clicking</strong> on the name of any of the five pods.</li>
+</ol>
+<hr />
+<ol start="30">
+<li>Drill down into the <strong>YAML</strong> (Yet Another Markup Language) tab.</li>
+</ol>
+<hr />
+<ol start="31">
+<li>Scroll down to the end of the YAML file for additional details on the status and parameters of the modified app.</li>
+</ol>
+<hr />
+<ol start="32">
+<li>
+<p>Another (faster) way to verify the update occurred is to go back to the <strong>Topology</strong> page and click on the application’s tile icon to pull open the <em>Details</em> panel.</p>
+<p>Drill down into the <strong>Resources</strong> tab.</p>
+</li>
+</ol>
+<hr />
+<ol start="33">
+<li>Scroll down to find the <em>Routes</em> section. Click the <strong>Location:</strong> URL to open a new browser tab running the latest live version of <code>mypyflask-app</code>.</li>
+</ol>
+<hr />
+<ol start="34">
+<li>
+<p>The text rendered on-screen should display <code>VERSION 2.0</code>, which confirms for Amy and the team (and yourself) that the update was successfully pushed to the live deployment.</p>
+<p>When performing a rollback, you can see references to old replicas and new replicas. In this project, the old replicas are the original 5 pods you deployed in the previous steps when you scaled the application. The new replicas come from the newly created pods with the new image.</p>
+<p>All pods are owned by their respective deployment. The deployment manages these two sets of pods with a resource called a <em>ReplicaSet</em>.</p>
+</li>
+</ol>
+<hr />
+<ol start="35">
+<li>To view the <em>ReplicaSet</em> for <code>mypyflask-app</code>, return to the <strong>Topology</strong> page and click the application tile. Click on the name of the application (<code>mypyflask-app</code>) to open the <em>Deployment</em> details screen.</li>
+</ol>
+<hr />
+<ol start="36">
+<li>
+<p>From the list of tabs, drill down into <strong>ReplicaSets</strong>.</p>
+<p>On the <em>ReplicaSets</em> page you will see both old (potentially 2 old) and (one) new <em>ReplicaSets</em>, mapping to <code>v1</code> and <code>v2</code> of <code>mypyflask-app</code>, respectively.</p>
+</li>
+</ol>
+<hr />
+<ol start="37">
+<li>To undo (rollback) a deployment from <code>v2</code> back to <code>v1</code>, <strong>click</strong> the <em>three stacked dots</em> icon (at the far right of 0 of 0 pods) to toggle open a list of commands. Select the <strong>Rollback</strong> option to execute a version change back to <code>v1</code>.</li>
+</ol>
+<hr />
+<ol start="38">
+<li>You will see a new <em>ReplicaSet</em> created and pods will soon be added to that grouping. Wait for the <code>v2</code> <em>ReplicaSet</em> to display <code>(0 of 0 pods)</code> and for the rolled-back (<code>v1</code>) <em>ReplicaSet</em> to display <code>(5 of 5 pods)</code>.</li>
+</ol>
+<hr />
+<ol start="39">
+<li>Verify that the <em>ReplicaSet</em> of 5 pods are running <code>v1</code> of the application, using the same steps as before: either by checking the <em>YAML</em> tab  (Steps 29–31) or the <em>Topology</em> page (Steps 32–34).</li>
+</ol>
+<hr />
+<h1 id="_1"></h1>
+<h1 id="next-steps">Next Steps</h1>
+<p>In the following module, you will learn how to perform these steps in a more programmatic fashion.</p>
 
 
 
