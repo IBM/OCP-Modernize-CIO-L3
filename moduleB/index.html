@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#module-b-working-graphically-with-red-hat-openshift" class="md-skip">
+        <a href="#module-b-graphically-create-scale-upgrade-and-rollback-an-application-on-red-hat-openshift" class="md-skip">
           Skip to content
         </a>
       
@@ -307,7 +307,7 @@
                 
 
 
-<h1 id="module-b-working-graphically-with-red-hat-openshift"><strong>Module B</strong>: Working graphically with Red Hat OpenShift</h1>
+<h1 id="module-b-graphically-create-scale-upgrade-and-rollback-an-application-on-red-hat-openshift"><strong>Module B</strong>: Graphically create, scale, upgrade, and rollback an application on Red Hat OpenShift</h1>
 <hr />
 <p>Amy's has a mandate to increase the productivity and output of her developers and programmers. This is precisely the reason why Stacked Corp. chose to make the investment in a platform such as Red Hat OpenShift on Power Systems; but in turn, the company expects to see measurable gains across these metrics in order to justify the expense of the investment.</p>
 <p>Ahead, you will learn (alongside Amy's team) how to manage a basic application's lifecycle via OpenShift (OCP): how to create and deploy an application from an existing Docker image, scale it according to workload demands, update it to a newer version, and finally rollback the application to a previous version.</p>
@@ -316,7 +316,7 @@
 <li><strong>Module B</strong>: the <em>graphical</em> interface method</li>
 <li><strong>Module C</strong>: the <em>programmatic</em> method</li>
 </ul>
-<p>The first step will be the creation of an application within OpenShift Container Platform from an existing image hosted on a <strong>Red Hat Quay.io</strong> repository. <a href="https://quay.io/" target="_blank">Quay.io</a> is a Red Hat-owned registry for containerized images, providing a useful alternative to DockerHub for hosting images and code. In this module, we will be performing these operations <em>graphically</em> using the web interface provided by Red Hat OpenShift.</p>
+<p>The first step will be the creation of an application within OpenShift Container Platform from an existing image hosted on a <a href="https://quay.io/" target="_blank"><strong>Red Hat Quay.io</strong></a> repository. Quay.io is a Red Hat-owned registry for containerized images, providing a useful alternative to DockerHub for hosting images and code. In this module, we will be performing these operations <em>graphically</em> using the web interface provided by Red Hat OpenShift.</p>
 <hr />
 <ol>
 <li>Open the main dashboard of the OpenShift web interface.</li>
@@ -467,7 +467,7 @@
 <li>
 <p>From the <strong>Deploy Image</strong> page, scroll down and locate the <em>Image</em> section. Within the <strong>Image name from external registry</strong> field, change the address from <code>v1</code> to <code>v2</code>. <strong>Save</strong> your changes at the bottom of the page.</p>
 <p>Your browser will then be taken back to the Resources view. Some patience is required as you see the page gradually update and the changes roll across the various replica pods. Over time you will see “View all 8” or “View all 10” pods, and so on.</p>
-<p>Clicking on View All as done previously (Step 25), you'll see the old pods (representing the <code>v1</code> deployment of the application) being terminated and new pods (representing <code>v2</code>) being created.</p>
+<p>Clicking on <strong>View All</strong> as done previously (Step 25), you'll see the old pods (representing the <code>v1</code> deployment of the application) being terminated and new pods (representing <code>v2</code>) being created.</p>
 <p><strong>Wait</strong> for all old pods to <em>terminate</em> and new pods to be in a <em>Running</em> state before continuing (a total of 5 pods will remain by the time this process concludes).</p>
 </li>
 </ol>
