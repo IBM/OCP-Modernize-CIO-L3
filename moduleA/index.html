@@ -636,10 +636,11 @@
 <hr />
 <p>Amy’s team has now successfully deployed application code via what we’ve coined the <strong>”Docker build”</strong> strategy. But what if her teams of DevOps engineers and developers want to leverage webhooks for working (and deploying) directly from the source code? Rather than needing to manually import source code from repositories such as GitHub— like you did in the previous steps —what if Amy could produce the same results with minimal micromanagement and better automation?</p>
 <p>In the following steps, you'll reproduce a similar workflow to what you just completed (using a sample pyFlask web framework application hosted on GitHub), <strong>but this time using webhooks to automatically notify OpenShift of new code push/commit events in GitHub</strong>. The result will be that OpenShift automatically rebuilds and redeploys the application using the latest code changes in your GitHub repository, without much (if any) intervention from the DevOps team (you). Let’s get started.</p>
+<hr />
 <ol start="42">
 <li>
-<p>In your web browser, open the OpenShift cluster dashboard and switch to the <strong>Administrator</strong> perspective. From the main landing page, drill down into <strong>Projects</strong>.</p>
-<p>Click the <strong>Create Project</strong> button and assign it the name <code>pyflask-demo</code>, then click <strong>Create</strong> when satisfied.</p>
+<p>In your web browser, open the OpenShift cluster dashboard and switch to the <strong>Administrator</strong> perspective. From the main landing page, drill down into <strong>Home</strong> &gt; <strong>Projects</strong>.</p>
+<p>Click the <strong>Create Project</strong> button (located in the top-right corner) and assign it the name <code>pyflask-demo</code>, then click <strong>Create</strong> when satisfied.</p>
 </li>
 </ol>
 <hr />
@@ -651,20 +652,23 @@
 </ol>
 <hr />
 <ol start="44">
-<li>Open a new tab in your web browser and navigate to your <em>personal</em> GitHub account (created earlier). Then visit the link above and click <strong>Fork</strong> to replicate the code into your own GitHub repository. This will ensure that any changes made to the GitHub code only impact your own replica, rather than the main parent branch.</li>
+<li>
+<p>Open a new tab in your web browser and navigate to your <em>personal</em> GitHub account (created earlier).</p>
+<p>Then visit the following link: <a href="https://github.com/ocp-power-demos/s2i-pyflask-demo" target="_blank">https://github.com/ocp-power-demos/s2i-pyflask-demo</a></p>
+<p>Click the <strong>Fork</strong> button to replicate the code into your own GitHub repository. This will ensure that any changes made to the GitHub code only impact your own replica, rather than the main parent branch. This is the same procedure you followed earlier in this module.</p>
+</li>
 </ol>
 <hr />
 <ol start="45">
 <li>
 <p>Return to the OpenShift cluster dashboard and switch to the <strong>Developer</strong> perspective.</p>
 <p>From the taskbar on the left, select the <strong>+Add</strong> button and then click the <strong>From Git</strong> option (located under the <em>Git Repository</em> category).</p>
-<p>Note that when you completed the earlier component of this lab module, you selected the <em>From Dockerfile</em> option.</p>
 </li>
 </ol>
 <hr />
 <ol start="46">
 <li>
-<p><strong>Paste</strong> the <code>URL</code> of your <em>personal</em> GitHub account’s fork of the pyFlask application into the <strong>Git Repo URL</strong> field. OpenShift will automatically validate the URL and the Builder Image should display as a Python image.</p>
+<p><strong>Paste</strong> the <code>URL</code> of your <em>personal</em> GitHub account’s fork of the <code>s2i-pyflask</code> application into the <strong>Git Repo URL</strong> field. OpenShift will automatically validate the URL and the Builder Image should display as a Python image.</p>
 <p>Click the <strong>Show Advanced Git Options</strong> toggle.</p>
 <p>For the <strong>Git Reference</strong> field, enter the value <code>main</code>.</p>
 </li>
@@ -679,7 +683,10 @@
 </ol>
 <hr />
 <ol start="49">
-<li>Scrolling further down under <strong>Advanced Options</strong>, ensure that you enable the <code>Create a Route to the Application</code> button. Follow this up with enabling the <code>Show advanced Routing options</code> toggle.</li>
+<li>
+<p>Scrolling further down under <strong>Advanced Options</strong>, ensure that you <em>enable</em> the <code>Create a Route</code> button.</p>
+<p>Click the <code>Show advanced Routing options</code> toggle to expose additional options.</p>
+</li>
 </ol>
 <hr />
 <ol start="50">
@@ -706,7 +713,7 @@
 <hr />
 <ol start="54">
 <li>
-<p>After the Build is completed, find the <strong>Routes</strong> section at the bottom of the panel and click the <code>HTTPs URL</code> to be directed to a live view of the running application.</p>
+<p>After the Build is completed, find the <strong>Routes</strong> section at the bottom of the panel and click the <code>Location:</code> address to be directed to a live view of the running application. Disregard any <em>"Connection is not private"</em> warnings that your browser may produce and continue to the destination.</p>
 <p>A new tab should open within your web browser displaying a message identical to the one presented in the following screenshot.</p>
 </li>
 </ol>
@@ -716,17 +723,17 @@
 <p>Test the other two API endpoints that were part of the original pyFlask application code base that you replicated from GitHub, in order to validate that the full application was brought over and has correctly deployed.</p>
 <p>Add <code>/version</code> to the end of the URL for your application’s web address (Step 54) and then hit <em>Return</em> on your keyboard to load the new page.</p>
 <p>Validate that the <code>/test</code> endpoint is also working.</p>
-</li>
-</ol>
 <div class="admonition warning">
 <p class="admonition-title">RECORD THIS VALUE</p>
 <p>Record the message displayed to screen when validating the <code>/test</code> endpoint.</p>
 </div>
 <p>If all three endpoints are working then OpenShift has successfully deployed a containerized application pod directly from our GitHub repository.</p>
+</li>
+</ol>
 <hr />
 <ol start="56">
 <li>
-<p>Return to the OpenShift cluster dashboard and switch to the <strong>Developer</strong> perspective.</p>
+<p>Return to the OpenShift cluster dashboard and verify that you are using the <strong>Developer</strong> perspective.</p>
 <p>Drill down into the <strong>Builds</strong> tab, in which you should see an <code>s2i-pyflask</code> service.</p>
 <p><strong>Click</strong> the <em>name</em> of the service.</p>
 </li>
@@ -760,27 +767,33 @@
 </ol>
 <hr />
 <ol start="63">
-<li>Click the <code>Disable</code> option under the <strong>SSL Verification</strong> category (you will be asked to confirm this selection).</li>
+<li>Click the <code>Disable</code> option under the <strong>SSL Verification</strong> category.</li>
 </ol>
 <hr />
 <ol start="64">
 <li>
 <p>When satisfied, click <strong>Add Webhook</strong>.</p>
 <p>The web browser will redirect back to the Webhooks page. It will take a few moments for the webhook to initialize and make its first deliveries to the OpenShift cluster. You will have confirmation that the webhook is working properly once a green checkmark and a <code>Last delivery was successful</code> statement appear on screen.</p>
+<details class="warning">
+<summary>WEBHOOK FAILS TO INITIALIZE</summary>
+<p>If the Webhook fails to deliver packets, you may need to manually edit the Webhook configuration and confirm that the SSL verification option has been <em>DISABLED</em>. Do so by navigating to <strong>Webhooks</strong> &gt; <strong>Edit Webhook</strong> from the GitHub dashboard. Once disabled, click <strong>Update Webhook</strong> and then give the Webhook a minute or two for reinitialization.</p>
+</details>
 </li>
 </ol>
 <hr />
 <ol start="65">
-<li>To inspect additional details about the webhook (and its deliveries), click the webhook name and scroll down to the bottom of the page, then click the icon as shown.</li>
-</ol>
+<li>
+<p>To inspect additional details about the webhook (and its deliveries), <strong>click</strong> the webhook <em>name</em> and scroll down to the bottom of the page, then click the icon as shown.</p>
 <div class="admonition warning">
 <p class="admonition-title">RECORD THIS VALUE</p>
-<p>Record value of <code>Content-Type:</code> that is displayed within the webhook <em>Headers</em> field</p>
+<p>Click the name of the alphanumeric string (something like <code>0daa9e50-90...</code>) to expand additional details on the delivery. Record the value of <code>Content-Type:</code> returned under the webhook’s Request <strong>Headers</strong>.</p>
 </div>
-<p>Let’s now make a small change to the source code by changing the version to <em>2.0</em> in <code>app.py</code>. This should trigger a push event from GitHub to OpenShift, and in turn cause OpenShift to rebuild the Docker image and redeploy our pod using the newly-built Docker image.</p>
+<p>Now you will modify the source code in your <em>personal</em> GitHub replica of the forked code.</p>
+</li>
+</ol>
 <hr />
 <ol start="66">
-<li>Return to the main landing page of your personal account replica of <code>s2i-pyflask-demo</code> and drill down into the app.py file within the directory of assets.</li>
+<li>Return to the main <strong>Code</strong> page of your personal account replica of <code>s2i-pyflask-demo</code> and click on the name of the <code>app.py</code> file within the directory of assets.</li>
 </ol>
 <hr />
 <ol start="67">
