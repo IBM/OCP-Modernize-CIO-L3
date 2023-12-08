@@ -338,13 +338,16 @@
 </ol>
 <hr />
 <ol start="4">
-<li>From the tabs on the left of the page, locate <strong>Home</strong> and then drill down into <strong>Projects</strong>.</li>
+<li>
+<p>From the tabs on the left of the page, locate <strong>Home</strong> and then drill down into <strong>Projects</strong>.</p>
+<p><img alt="" loading="lazy" src="../_attachments/52.png" width="600" /></p>
+</li>
 </ol>
 <hr />
 <ol start="5">
 <li>
 <p>Create a new <strong>Project</strong> for demonstrating OCP’s Source-2-Image capabilities: from the top-right of the page, click the <strong>Create Project</strong> button.</p>
-<p>Assign the following values to the Project:</p>
+<p>Assign the following values to the <em>Project</em>:</p>
 <ul>
 <li><em>Name:</em> set to <code>mypyflask-project</code></li>
 <li><em>Display name:</em> set to <code>mypyflask-project</code></li>
@@ -367,7 +370,10 @@
 </ol>
 <hr />
 <ol start="9">
-<li>Deploy your first application to the OCP cluster. From the left navigation bar, click <strong>+Add</strong>.</li>
+<li>
+<p>Deploy your first application to the OCP cluster. From the left navigation bar, click <strong>+Add</strong>.</p>
+<p><img alt="" loading="lazy" src="../_attachments/53.png" width="600" /></p>
+</li>
 </ol>
 <hr />
 <ol start="10">
@@ -383,7 +389,10 @@
 </ol>
 <hr />
 <ol start="12">
-<li>Scroll down until you reach the <strong>General</strong> section. Here you can provide an <em>Application Name</em> (<code>mypyflask-app</code>) and a unique <em>Name</em> (<code>mypyflask-app</code>) that will be associated with the resource. Note that if an image already exists in OCP with the same name you will receive an error message — be sure to use a unique name.</li>
+<li>
+<p>Scroll down until you reach the <strong>General</strong> section. Here you can provide an <em>Application Name</em> (<code>mypyflask-app</code>) and a unique <em>Name</em> (<code>mypyflask-app</code>) that will be associated with the resource. Note that if an image already exists in OCP with the same name you will receive an error message — be sure to use a unique name.</p>
+<p><img alt="" loading="lazy" src="../_attachments/54.png" width="600" /></p>
+</li>
 </ol>
 <hr />
 <ol start="13">
@@ -403,7 +412,10 @@
 </ol>
 <hr />
 <ol start="17">
-<li><em>Enable</em> the <strong>Secure Route</strong> option.</li>
+<li>
+<p><em>Enable</em> the <strong>Secure Route</strong> option.</p>
+<p><img alt="" loading="lazy" src="../_attachments/55.png" width="600" /></p>
+</li>
 </ol>
 <hr />
 <ol start="18">
@@ -422,7 +434,10 @@
 </ol>
 <hr />
 <ol start="21">
-<li>From the <strong>Topology</strong> page, click on the <strong>rectangular icon</strong> containing text similar to <code>(DC) mypyflask-app</code> (your exact naming may differ), located just below the OpenShift logo at the center of the tile. Doing so will pull open an overview panel along the right side of the web interface.</li>
+<li>
+<p>From the <strong>Topology</strong> page, click on the <strong>rectangular icon</strong> containing text similar to <code>(DC) mypyflask-app</code> (your exact naming may differ), located just below the OpenShift logo at the center of the tile. Doing so will pull open an overview panel along the right side of the web interface.</p>
+<p><img alt="" loading="lazy" src="../_attachments/56.png" width="600" /></p>
+</li>
 </ol>
 <hr />
 <ol start="22">
@@ -434,12 +449,16 @@
 </ol>
 <hr />
 <ol start="23">
-<li>Return to the <strong>Topology</strong> page from Step 21, select the application's name as before, and then drill down into the <strong>Details</strong> tab along the right-hand side of the interface.</li>
+<li>
+<p>Return to the <strong>Topology</strong> page from Step 21, select the application's name as before, and then drill down into the <strong>Details</strong> tab along the right-hand side of the interface.</p>
+<p><img alt="" loading="lazy" src="../_attachments/57.png" width="600" /></p>
+</li>
 </ol>
 <hr />
 <ol start="24">
 <li>
 <p>Take note of the blue circular ring, which describes the number of replica pods currently supporting the live application.</p>
+<p><img alt="" loading="lazy" src="../_attachments/58.png" width="600" /></p>
 <p><strong>Click</strong> on the <em>up arrow</em> (to the right of the circle) <strong>4 times</strong> to scale the app to a total of 5 replicas.</p>
 <p>Scaling will begin immediately, but will need a few moments to complete. Wait until the count inside the blue circles reads <code>5 Pods</code> before continuing.</p>
 </li>
@@ -453,7 +472,10 @@
 </ol>
 <hr />
 <ol start="26">
-<li>Click on the <strong>Deployments</strong> link. Your browser will be redirected to a <em>Deployment</em> overview showing the <code>mypyflask-app</code> and <code>pod</code> status.</li>
+<li>
+<p>Click on the <strong>Deployments</strong> link. Your browser will be redirected to a <em>Deployment</em> overview showing the <code>mypyflask-app</code> and <code>pod</code> status.</p>
+<p><img alt="" loading="lazy" src="../_attachments/59.png" width="600" /></p>
+</li>
 </ol>
 <hr />
 <ol start="27">
@@ -466,6 +488,7 @@
 <ol start="28">
 <li>
 <p>From the <strong>Deploy Image</strong> page, scroll down and locate the <em>Image</em> section. Within the <strong>Image name from external registry</strong> field, change the address from <code>v1</code> to <code>v2</code>. <strong>Save</strong> your changes at the bottom of the page.</p>
+<p><img alt="" loading="lazy" src="../_attachments/60.png" width="600" /></p>
 <p>Your browser will then be taken back to the Resources view. Some patience is required as you see the page gradually update and the changes roll across the various replica pods. Over time you will see “View all 8” or “View all 10” pods, and so on.</p>
 <p>Clicking on <strong>View All</strong> as done previously (Step 25), you'll see the old pods (representing the <code>v1</code> deployment of the application) being terminated and new pods (representing <code>v2</code>) being created.</p>
 <p><strong>Wait</strong> for all old pods to <em>terminate</em> and new pods to be in a <em>Running</em> state before continuing (a total of 5 pods will remain by the time this process concludes).</p>
@@ -473,7 +496,10 @@
 </ol>
 <hr />
 <ol start="29">
-<li>One way to verify that the new pods are in fact running the updated application is to check the pod <em>Details</em> panel — do so by <strong>clicking</strong> on the name of any of the five pods.</li>
+<li>
+<p>One way to verify that the new pods are in fact running the updated application is to check the pod <em>Details</em> panel — do so by <strong>clicking</strong> on the name of any of the five pods.</p>
+<p><img alt="" loading="lazy" src="../_attachments/61.png" width="600" /></p>
+</li>
 </ol>
 <hr />
 <ol start="30">
@@ -488,6 +514,7 @@
 <li>
 <p>Another (faster) way to verify the update occurred is to go back to the <strong>Topology</strong> page and click on the application’s tile icon to pull open the <em>Details</em> panel.</p>
 <p>Drill down into the <strong>Resources</strong> tab.</p>
+<p><img alt="" loading="lazy" src="../_attachments/62.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -510,12 +537,16 @@
 <ol start="36">
 <li>
 <p>From the list of tabs, drill down into <strong>ReplicaSets</strong>.</p>
+<p><img alt="" loading="lazy" src="../_attachments/63.png" width="600" /></p>
 <p>On the <em>ReplicaSets</em> page you will see both old (potentially 2 old) and (one) new <em>ReplicaSets</em>, mapping to <code>v1</code> and <code>v2</code> of <code>mypyflask-app</code>, respectively.</p>
 </li>
 </ol>
 <hr />
 <ol start="37">
-<li>To undo (rollback) a deployment from <code>v2</code> back to <code>v1</code>, <strong>click</strong> the <em>three stacked dots</em> icon (at the far right of 0 of 0 pods) to toggle open a list of commands. Select the <strong>Rollback</strong> option to execute a version change back to <code>v1</code>.</li>
+<li>
+<p>To undo (rollback) a deployment from <code>v2</code> back to <code>v1</code>, <strong>click</strong> the <em>three stacked dots</em> icon (at the far right of 0 of 0 pods) to toggle open a list of commands. Select the <strong>Rollback</strong> option to execute a version change back to <code>v1</code>.</p>
+<p><img alt="" loading="lazy" src="../_attachments/64.png" width="600" /></p>
+</li>
 </ol>
 <hr />
 <ol start="38">
@@ -523,7 +554,7 @@
 </ol>
 <hr />
 <ol start="39">
-<li>Verify that the <em>ReplicaSet</em> of 5 pods are running <code>v1</code> of the application, using the same steps as before: either by checking the <em>YAML</em> tab  (Steps 29–31) or the <em>Topology</em> page (Steps 32–34).</li>
+<li>Verify that the <em>ReplicaSet</em> of 5 pods are running <code>v1</code> of the application, using the same steps as before: either by checking the <em>YAML</em> tab  (Steps 29–31) or <em>Topology</em> page (Steps 32–34).</li>
 </ol>
 <hr />
 <h1 id="_1"></h1>
