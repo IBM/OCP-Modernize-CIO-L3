@@ -426,21 +426,22 @@
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc expose deployment mypyflask --port<span class="o">=</span><span class="m">8080</span> --type<span class="o">=</span>NodePort
 </code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">RECORD THIS VALUE</p>
-<p>Record the value under the <code>EXTERNAL-IP</code> field for your records.</p>
-</div>
 <hr />
 <ol start="55">
 <li>Execute the following command to view the service:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>oc get service
 </code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">RECORD THIS VALUE</p>
+<p>Record the value under the <code>EXTERNAL-IP</code> field for your records.</p>
+</div>
 <hr />
 <ol start="56">
 <li>
 <p>In order to make the exposed service accessible externally (to the public), you must define a <em>public router</em>. To do so, return to the OpenShift cluster web dashboard and switch to the <strong>Administrator</strong> perspective.</p>
-<p>From the menus on the left side, drill down into <strong>Networking</strong> &gt; <strong>Routes</strong> and then <strong>Create Route</strong>.</p>
+<p>From the menus on the left side, drill down into <strong>Networking</strong> &gt; <strong>Routes</strong> and then <strong>Create Route</strong> (blue icon in the top-right corner).</p>
+<p>Click the <strong>Project:</strong> drop-down menu at the top of the page and ensure that the value is set to <code>pyflask-project</code> before continuing with defining the new <em>Route</em>; otherwise, the <em>Service</em> created in Step 52 will not display in the configuration tool on Step 57.</p>
 </li>
 </ol>
 <hr />
@@ -449,7 +450,7 @@
 <p>Define a route with the following definitions:</p>
 <ul>
 <li><em>Name</em>: <code>mypyflask</code></li>
-<li><em>Service</em>: (select the service deployed earlier)</li>
+<li><em>Service</em>: select the <code>mypyflask</code> service from Step 52</li>
 <li><em>Target Port</em>: <code>8080-&gt;8080 (TCP)</code></li>
 <li><em>Secure Route</em>: <code>enabled</code></li>
 <li><em>TLS Termination</em>: <code>Edge</code></li>
