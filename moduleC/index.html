@@ -371,16 +371,18 @@
 <p>Alternatively, you can supply the private key using additional flags as part of the SSH connection request. This will be covered in Steps 48-49.</p>
 <hr />
 <ol start="48">
-<li>Return to the ITZ <strong>My Reservations</strong> summary for the OCP environment once again for <strong>Environment</strong> details. Locate ahd copy the value of the <strong>Bastion Public IP Address</strong> to your clipboard. Retain this value as you will need it for the following step. It should be something similar to:</li>
+<li>Return to the ITZ <strong>My Reservations</strong> summary for the OCP environment once again for <strong>Environment</strong> details. Locate ahd copy the value of the <strong>Bastion Public IP Address</strong> to your clipboard. It should be something similar to:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>169.54.113.90
 </code></pre></div>
+<p>Retain this value for your records as you will need it again later.</p>
 <hr />
 <ol start="49">
-<li>With your Terminal window still open and in the same directory as your private key file (<code>~/Desktop</code>), execute the following after substituting in the address from Step 48. When logging in, you may receive a prompt asking whether to <em>“Use insecure connections?”</em> — respond with <code>y</code> and hit the <code>Return</code> key to continue.</li>
+<li>With your Terminal window still open and in the same directory as your private key file (<code>~/Desktop</code>), execute the following after substituting in the address from Step 48:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ssh cecuser@address-from-step-48
 </code></pre></div>
+<p>When logging in, you may receive a prompt asking whether to <em>“Use insecure connections?”</em> — respond with <code>y</code> and hit the <code>Return</code> key to continue.</p>
 <hr />
 <ol start="50">
 <li>
