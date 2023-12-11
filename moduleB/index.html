@@ -361,7 +361,8 @@
 <ol start="7">
 <li>
 <p>Click the <strong>Topology</strong> tab. As expected, no resources have yet to be assigned.</p>
-<p><img alt="" loading="lazy" src="../_attachments/81.png" width="600" /></p>
+<p></br>
+<img alt="" loading="lazy" src="../_attachments/81.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -376,7 +377,8 @@
 <ol start="10">
 <li>
 <p>From the list of available sources, use the <strong>Container Images</strong> category.</p>
-<p><img alt="" loading="lazy" src="../_attachments/82.png" width="600" /></p>
+<p></br>
+<img alt="" loading="lazy" src="../_attachments/82.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -389,9 +391,11 @@
 </ol>
 <hr />
 <ol start="12">
-<li>Scroll down until you reach the <strong>General</strong> section. Here you can provide an <em>Application Name</em> (<code>mypyflask-app</code>) and a unique <em>Name</em> (<code>mypyflask-app</code>) that will be associated with the resource. Note that if an image already exists in OCP with the same name you will receive an error message — be sure to use a unique name.</li>
-</ol>
+<li>
+<p>Scroll down until you reach the <strong>General</strong> section. Here you can provide an <em>Application Name</em> (<code>mypyflask-app</code>) and a unique <em>Name</em> (<code>mypyflask-app</code>) that will be associated with the resource. Note that if an image already exists in OCP with the same name you will receive an error message — be sure to use a unique name.</p>
 <p><img alt="" src="../_attachments/83.png" /></p>
+</li>
+</ol>
 <hr />
 <ol start="13">
 <li>Further down you will reach the <strong>Resources</strong> section. Here, there are two options for the type of resource OCP will generate. Select the <code>Deployment</code> option.</li>
@@ -422,15 +426,18 @@
 </ol>
 <hr />
 <ol start="20">
-<li>When satisfied, click the <strong>Create</strong> button to continue.</li>
-</ol>
+<li>
+<p>When satisfied, click the <strong>Create</strong> button to continue.</p>
 <p><img alt="" src="../_attachments/84.png" /></p>
 <p>You can inspect the OpenShift cluster using the Web graphical user interface to verify that the application deployment is underway. From the <strong>Topology</strong> page, you can view the pod deployment which is underway. It will take several moments for the pod to be initialized and brought to a <em>Running</em> state.</p>
+</li>
+</ol>
 <hr />
 <ol start="21">
 <li>
 <p>From the <strong>Topology</strong> page, click on the <strong>rectangular icon</strong> containing text similar to <code>(DC) mypyflask</code> (your exact naming may differ), located just below the OpenShift logo at the center of the tile. Doing so will pull open an overview panel along the right side.</p>
-<p><img alt="" loading="lazy" src="../_attachments/85.png" width="600" /></p>
+<p></br>
+<img alt="" loading="lazy" src="../_attachments/85.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -442,8 +449,10 @@
 </li>
 </ol>
 <hr />
-<p>Now that you have successfully deployed the application using the existing <em>Quay.io</em> image, you are ready to demonstrate how to scale and rollback the application.</p>
-<p>Your next step will be to scale the application using replicas of the pod deployed in the previous section. The creation of multiple replicas of a pod will help Amy and her team to ensure that their application’s deployment always has the available capacity (and resources) to meet the need of any increased demand for the application within the company.</p>
+<div class="highlight"><pre><span></span><code>Now that you have successfully deployed the application using the existing *Quay.io* image, you are ready to demonstrate how to scale and rollback the application.
+
+Your next step will be to scale the application using replicas of the pod deployed in the previous section. The creation of multiple replicas of a pod will help Amy and her team to ensure that their application’s deployment always has the available capacity (and resources) to meet the need of any increased demand for the application within the company.
+</code></pre></div>
 <hr />
 <ol start="23">
 <li>Return to the <strong>Topology</strong> page from Step 21, select the application's name as before, and then drill down into the <strong>Details</strong> tab along the right-hand side of the interface.</li>
@@ -457,7 +466,8 @@
 <li>Scaling will begin immediately, but will need a few moments to complete</li>
 <li>Wait until the count inside the blue circles reads <code>5 Pods</code> before continuing</li>
 </ul>
-<p><img alt="" loading="lazy" src="../_attachments/87.png" width="600" /></p>
+<p></br>
+<img alt="" loading="lazy" src="../_attachments/87.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -472,7 +482,8 @@
 <ol start="26">
 <li>
 <p>Click on the <strong>Deployments</strong> link. Your browser will be redirected to a <em>Deployment</em> overview showing the <code>mypyflask-app</code> and <code>pod</code> status.</p>
-<p><img alt="" loading="lazy" src="../_attachments/89.png" width="600" /></p>
+<p></br>
+<img alt="" loading="lazy" src="../_attachments/89.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -511,14 +522,16 @@ Your browser will then be taken back to the <em>Resources</em> view. Some patien
 <li>Drill down into the <strong>Resources</strong> tab.</li>
 <li>Click any of the five pod <em>names</em> from the list.</li>
 </ul>
-<p><img alt="" loading="lazy" src="../_attachments/92.png" width="600" /></p>
+<p></br>
+<img alt="" loading="lazy" src="../_attachments/92.png" width="600" /></p>
 </li>
 </ol>
 <hr />
 <ol start="30">
 <li>
 <p>Drill down into the <strong>YAML</strong> (Yet Another Markup Language) tab.</p>
-<p><img alt="" loading="lazy" src="../_attachments/94.png" width="600" /></p>
+<p></br>
+<img alt="" loading="lazy" src="../_attachments/94.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -536,7 +549,9 @@ Your browser will then be taken back to the <em>Resources</em> view. Some patien
 <ol start="33">
 <li>
 <p>Scroll down to find the <em>Routes</em> section. Click the <strong>Location:</strong> URL to open a new browser tab running the latest live version of <code>mypyflask-app</code>.</p>
-<p><img alt="" loading="lazy" src="../_attachments/95.png" width="600" />
+<p></br>
+<img alt="" loading="lazy" src="../_attachments/95.png" width="600" />
+</br>
 <img alt="" loading="lazy" src="../_attachments/96.png" width="600" /></p>
 </li>
 </ol>
@@ -563,7 +578,8 @@ Your browser will then be taken back to the <em>Resources</em> view. Some patien
 <ol start="36">
 <li>
 <p>From the list of tabs, drill down into <strong>ReplicaSets</strong>.</p>
-<p><img alt="" loading="lazy" src="../_attachments/98.png" width="600" /></p>
+<p></br>
+<img alt="" loading="lazy" src="../_attachments/98.png" width="600" /></p>
 <p>On the <em>ReplicaSets</em> page you will see both old (potentially 2 old) and (one) new <em>ReplicaSets</em>, mapping to <code>v1</code> and <code>v2</code> of <code>mypyflask-app</code>, respectively.</p>
 </li>
 </ol>
@@ -587,7 +603,7 @@ Your browser will then be taken back to the <em>Resources</em> view. Some patien
 <hr />
 <h1 id="_1"></h1>
 <h1 id="next-steps">Next Steps</h1>
-<p>In the following module, you will learn how to perform these steps programmatically.</p>
+<p>In the following module, you will learn how to perform these steps programmatically using Red Hat OpenShift's command line interface (CLI).</p>
 
 
 
