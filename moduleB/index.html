@@ -435,7 +435,7 @@
 <hr />
 <ol start="21">
 <li>
-<p>From the <strong>Topology</strong> page, click on the <strong>rectangular icon</strong> containing text similar to <code>(DC) mypyflask-app</code> (your exact naming may differ), located just below the OpenShift logo at the center of the tile. Doing so will pull open an overview panel along the right side of the web interface.</p>
+<p>From the <strong>Topology</strong> page, click on the <strong>rectangular icon</strong> containing text similar to <code>(DC) mypyflask</code> (your exact naming may differ), located just below the OpenShift logo at the center of the tile. Doing so will pull open an overview panel along the right side of the web interface.</p>
 <p><img alt="" loading="lazy" src="../_attachments/56.png" width="600" /></p>
 </li>
 </ol>
@@ -464,7 +464,7 @@
 <hr />
 <ol start="25">
 <li>
-<p>Once you have verified that 5 replica pods are running, click the <strong>Resources</strong> tab. Just to the right of the <em>Pods</em> category is the <strong>View All</strong> button — click this.</p>
+<p>Once you have verified that 5 replica pods are running, click the <strong>Resources</strong> tab. Just to the right of the <em>Pods</em> category is the <strong>View All 5</strong> button — click this.</p>
 <p>Your browser will be directed to the <em>Deployment</em> page, with the <em>Pods</em> tab pre-selected. From this screen you can inspect at-a-glance details on all (5) pod replicas running within the OpenShift cluster.</p>
 </li>
 </ol>
@@ -495,10 +495,15 @@
 <hr />
 <ol start="29">
 <li>
-<p>One way to verify that the new pods are in fact running the updated application is to check the pod <em>Details</em> panel — do so by <strong>clicking</strong> on the name of any of the five pods.</p>
-<p><img alt="" loading="lazy" src="../_attachments/61.png" width="600" /></p>
+<p>One way to verify that the new pods are in fact running the updated application is to inspect the pods themselves.</p>
+<ul>
+<li>Click the application tile on the <strong>Topology</strong> screen to expose the <em>Details</em> panel.</li>
+<li>Drill down into the <strong>Resources</strong> tab.</li>
+<li>Click any of the five pod <em>names</em> from the list.</li>
+</ul>
 </li>
 </ol>
+<p><img alt="" loading="lazy" src="../_attachments/61.png" width="600" /></p>
 <hr />
 <ol start="30">
 <li>Drill down into the <strong>YAML</strong> (Yet Another Markup Language) tab.</li>
@@ -528,7 +533,13 @@
 </ol>
 <hr />
 <ol start="35">
-<li>To view the <em>ReplicaSet</em> for <code>mypyflask-app</code>, return to the <strong>Topology</strong> page and click the application tile. Click on the name of the application (<code>mypyflask-app</code>) to open the <em>Deployment</em> details screen.</li>
+<li>
+<p>To view the <em>ReplicaSet</em> for <code>mypyflask-app</code>, return to the <strong>Topology</strong> page and click on application tile to application's <em>Details</em> panel.</p>
+<ul>
+<li>Click the application's name <code>(D) mypyflask</code> that is located at the top of the panel. There is usually a <em>Health Checks</em> notification located just below this name.</li>
+<li>Wait for the the <em>Deployment Details</em> page to load.</li>
+</ul>
+</li>
 </ol>
 <hr />
 <ol start="36">
