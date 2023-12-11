@@ -429,7 +429,7 @@
 <hr />
 <ol start="21">
 <li>
-<p>From the <strong>Topology</strong> page, click on the <strong>rectangular icon</strong> containing text similar to <code>(DC) mypyflask</code> (your exact naming may differ), located just below the OpenShift logo at the center of the tile. Doing so will pull open an overview panel along the right side of the web interface.</p>
+<p>From the <strong>Topology</strong> page, click on the <strong>rectangular icon</strong> containing text similar to <code>(DC) mypyflask</code> (your exact naming may differ), located just below the OpenShift logo at the center of the tile. Doing so will pull open an overview panel along the right side.</p>
 <p><img alt="" loading="lazy" src="../_attachments/85.png" width="600" /></p>
 </li>
 </ol>
@@ -437,11 +437,12 @@
 <ol start="22">
 <li>
 <p>Click on the <strong>Location:</strong> URL located at the bottom of the panel, under the <em>Routes</em> section, to launch a new web browser tab where the live application is running.</p>
-<p><img alt="" loading="lazy" src="../_attachments/86.png" width="600" /></p>
+<p></br>
+<img alt="" loading="lazy" src="../_attachments/86.png" width="600" /></p>
 </li>
 </ol>
 <hr />
-<p>Now that you have successfully deployed the application using the existing Quay.io image, you are ready to demonstrate how to scale and rollback the application.</p>
+<p>Now that you have successfully deployed the application using the existing <em>Quay.io</em> image, you are ready to demonstrate how to scale and rollback the application.</p>
 <p>Your next step will be to scale the application using replicas of the pod deployed in the previous section. The creation of multiple replicas of a pod will help Amy and her team to ensure that their application’s deployment always has the available capacity (and resources) to meet the need of any increased demand for the application within the company.</p>
 <hr />
 <ol start="23">
@@ -451,7 +452,11 @@
 <ol start="24">
 <li>
 <p>Take note of the blue circular ring, which describes the number of replica pods currently supporting the live application.</p>
-<p><strong>Click</strong> on the <em>up arrow</em> (to the right of the circle) <strong>4 times</strong> to scale the app to a total of 5 replicas. Scaling will begin immediately, but will need a few moments to complete. Wait until the count inside the blue circles reads <code>5 Pods</code> before continuing.</p>
+<ul>
+<li><strong>Click</strong> on the <em>up arrow</em> (to the right of the circle) <strong>4 times</strong> to scale the app to a total of 5 replicas.</li>
+<li>Scaling will begin immediately, but will need a few moments to complete.</li>
+<li>Wait until the count inside the blue circles reads <code>5 Pods</code> before continuing.</li>
+</ul>
 <p><img alt="" loading="lazy" src="../_attachments/87.png" width="600" /></p>
 </li>
 </ol>
