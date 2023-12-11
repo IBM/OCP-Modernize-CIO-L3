@@ -327,8 +327,10 @@
 <ol start="42">
 <li>
 <p>In the top-right corner of the dashboard, click the <strong>cecuser</strong> button (the account name you are currently logged in under) to open a drop-down menu.</p>
-<p>Click the <strong>Copy login command</strong> option from the menu. You will be asked to login using <code>htpasswd</code> a second time.</p>
-<p>Your browser will open a new window which is mostly white, except for a <strong>Display Token</strong> link in the top-left — <strong>click</strong> this link to generate a login string.</p>
+<ul>
+<li>Click the <strong>Copy login command</strong> option from the menu. You will be asked to login using <code>htpasswd</code> a second time.</li>
+<li>Your browser will open a new window which is mostly white, except for a <strong>Display Token</strong> link in the top-left — <strong>click</strong> this link to generate a login string.</li>
+</ul>
 </li>
 </ol>
 <hr />
@@ -342,8 +344,10 @@
 <ol start="44">
 <li>
 <p>Return to the <strong>My Reservations</strong> tab of IBM Technology Zone and drill down into your OpenShift reservation for additional <strong>Environment</strong> details.</p>
-<p>Locate the <strong>User Private SSH Key</strong> variable and copy it to clipboard using the shortcut button.</p>
-<p><strong>Save</strong> the complete key value (including the <code>BEGIN</code> and <code>END</code> lines) to a new notepad file named <code>privatekey.pem</code> on local Desktop so that it can be quickly referenced at a later step.</p>
+<ul>
+<li>Locate the <strong>User Private SSH Key</strong> variable and copy it to clipboard using the shortcut button.</li>
+<li><strong>Save</strong> the complete key value (including the <code>BEGIN</code> and <code>END</code> lines) to a new notepad file named <code>privatekey.pem</code> on local Desktop so that it can be quickly referenced at a later step.</li>
+</ul>
 </li>
 </ol>
 <hr />
@@ -440,8 +444,10 @@
 <ol start="56">
 <li>
 <p>In order to make the exposed service accessible externally (to the public), you must define a <em>public router</em>. To do so, return to the OpenShift cluster web dashboard and switch to the <strong>Administrator</strong> perspective.</p>
-<p>From the menus on the left side, drill down into <strong>Networking</strong> &gt; <strong>Routes</strong> and then <strong>Create Route</strong> (blue icon in the top-right corner).</p>
-<p>Click the <strong>Project:</strong> drop-down menu at the top of the page and ensure that the value is set to <code>pyflask-project</code> before continuing with defining the new <em>Route</em>; otherwise, the <em>Service</em> created in Step 52 will not display in the configuration tool on Step 57.</p>
+<ul>
+<li>From the menus on the left side, drill down into <strong>Networking</strong> &gt; <strong>Routes</strong> and then <strong>Create Route</strong> (blue icon in the top-right corner).</li>
+<li>Click the <strong>Project:</strong> drop-down menu at the top of the page and ensure that the value is set to <code>pyflask-project</code> before continuing with defining the new <em>Route</em>; otherwise, the <em>Service</em> created in Step 52 will not display in the configuration tool on Step 57.</li>
+</ul>
 </li>
 </ol>
 <hr />
