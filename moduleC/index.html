@@ -437,7 +437,7 @@
 <ol start="56">
 <li>
 <p>In order to make the exposed service accessible externally (to the public), you must define a <em>public router</em>. To do so, return to the OpenShift cluster web dashboard and switch to the <strong>Administrator</strong> perspective.</p>
-<p>From the menus on the left side, drill down into <strong>Networking</strong> &gt; <strong>Routes</strong> and then click <strong>Create Route</strong>.</p>
+<p>From the menus on the left side, drill down into <strong>Networking</strong> &gt; <strong>Routes</strong> and then <strong>Create Route</strong>.</p>
 </li>
 </ol>
 <hr />
@@ -462,7 +462,7 @@
 <ol start="59">
 <li>
 <p>Once the route has been defined and created, your browser will redirect to the Route Details panel. Here you will find additional configuration and health check details about the status of your route.</p>
-<p>Click the URL below the Location section to view a live deployment of your pyFlask application!</p>
+<p>Click the <em>URL</em> below the <em>Location</em> section to view a live deployment of the <code>pyFlask</code> app.</p>
 </li>
 </ol>
 <div class="admonition warning">
@@ -489,7 +489,9 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>oc get pods -n pyflask-project
 </code></pre></div>
 <hr />
-<p>Amy’s team will next want to perform a rolling update to the application, thereby deploying it to a new container image. The <em>“rolling” update</em> capabilities of OpenShift make it possible for her team to update the running image and perform an <em>“undo” operation</em> if a problem is later discovered (during or after the update has been performed). Showcase this by updating the application from <code>v1</code> to <code>v2</code> with the following steps.</p>
+<p>Amy’s team will next want to perform a rolling update to the application, thereby deploying it to a new container image. The <em>“rolling” update</em> capabilities of OpenShift make it possible for her team to update the running image and perform an <em>“undo” operation</em> if a problem is later discovered (during or after the update has been performed).</p>
+<p>Showcase this by updating the application from <code>v1</code> to <code>v2</code> with the following steps.</p>
+<hr />
 <ol start="63">
 <li>Update the application by executing:</li>
 </ol>
@@ -522,13 +524,14 @@
 <ol start="67">
 <li>
 <p>Notice that the service and router objects remain unchanged, despite having updated the underlying <em>Quay.io</em> image version of the running pod.</p>
-<p>Return to the <strong>Route Details</strong> panel (Step 59) and once again click the <em>URL</em> under the <em>Location</em> category. This will launch a new browser window where the <code>v2</code> update of <code>pyFlask</code> will be running.</p>
+<p>Return to the <strong>Route Details</strong> panel (Step 59) and once again click the <em>URL</em> under the <em>Location</em> category. This will launch a new browser window where the <code>v2</code> update of <code>pyFlask</code> will be live and accessible.</p>
 <p>Take note of the updated message printed to screen.</p>
 </li>
 </ol>
 <hr />
 <p>When performing an application rollback, Amy’s team is able to inspect references to both old replicas and new ones. In the case of the <code>pyFlask</code> application, you should expect to see old replicas of the original 5 pods deployed earlier when you scaled the application.</p>
 <p>The new replicas will be generated as a result of deploying 5 newly-created pods with the new application (<code>v2</code>) image. OpenShift uses a resource called a <em>ReplicaSet</em> to manage these two sets (old replicas and new replicas).</p>
+<hr />
 <ol start="68">
 <li>To see the <code>pyFlask</code> application <em>ReplicaSets</em>, execute the following instruction within the Terminal console:</li>
 </ol>
@@ -573,8 +576,8 @@
 <li>Return to the <strong>Route Details</strong> panel on the OpenShift web dashboard (Step 59) and click the <em>URL</em> under the <em>Location</em> category. This will launch a new browser window, which should display the <code>v1</code> version of <code>pyFlask</code> once again. This confirms that the rollback operation was a success.</li>
 </ol>
 <hr />
-<p>Well done! You’ve succeeded in managing Amy's app programmatically via Red Hat OpenShift on Power.</p>
-<p>That concludes the hands-on components to this Level 3 course. You are welcome to conclude the coursework at this point and follow the <a href="https://ibm.github.io/OCP-Modernize-CIO-L3/evaluation/" target="_blank">Level 3 accreditation</a> steps (depending on your role).</p>
+<p>Well done! You’ve succeeded in managing Amy's app programmatically via Red Hat OpenShift on Power. That concludes the hands-on components to this Level 3 course.</p>
+<p>You are encouraged at this stage to complete your <a href="https://ibm.github.io/OCP-Modernize-CIO-L3/evaluation/" target="_blank">Level 3 accreditation</a> (requirements vary depending on your job role).</p>
 
 
 
