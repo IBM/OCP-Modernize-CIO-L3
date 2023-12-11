@@ -515,19 +515,19 @@
 </code></pre></div>
 <hr />
 <ol start="66">
-<li>Take note of the name of one of the new pods from Step 53 and use the following command to confirm that the pod is using the <code>v2</code> application image:</li>
+<li>Further inspect the details of any of the five pods retrieved in Step 65 and use the following command to confirm that the pod is using the <code>v2</code> application image:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>oc describe pod &lt;pod-name&gt;
 </code></pre></div>
-<p>Replace <code>&lt;pod-name&gt;</code> with the value in Step 53. Do not include the <code>&lt; &gt;</code> braces when executing the modified instruction.</p>
+<p>Replace <code>&lt;pod-name&gt;</code> with the value in Step 65. Do not include the <code>&lt; &gt;</code> braces when executing the modified instruction.</p>
 <div class="admonition warning">
 <p class="admonition-title">RECORD THIS VALUE</p>
 <p>Record the value to the right of <em>Image</em> under the <em>Containers</em> section.</p>
 </div>
+<p>Notice that the service and router objects remain unchanged, despite having updated the underlying <em>Quay.io</em> image version of the running pod.</p>
 <hr />
 <ol start="67">
 <li>
-<p>Notice that the service and router objects remain unchanged, despite having updated the underlying <em>Quay.io</em> image version of the running pod.</p>
 <p>Return to the <strong>Route Details</strong> panel (Step 59) and once again click the <em>URL</em> under the <em>Location</em> category. This will launch a new browser window where the <code>v2</code> update of <code>mypyflask</code> will be live and accessible.</p>
 <p>Take note of the updated message printed to screen.</p>
 </li>
@@ -560,6 +560,7 @@
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>oc get pods
 </code></pre></div>
+<p>If you perform this step quickly after executing the instruction on Step 69, you'll likely see a mixture of <em>Running</em> and <em>Terminating</em> pods. After a few moments, the <em>Terminating</em> pods will be destroyed and only the <em>Running</em> (rolled back) pods will remain.</p>
 <hr />
 <ol start="72">
 <li>As you did previously in Step 66, use the <code>describe</code> command (and the name of one of the pods from Step 71) to verify that the <code>version</code> of the application has rolled back to <code>v1</code>:</li>
