@@ -364,13 +364,15 @@
 <p>Alternatively, you can supply the private key using additional flags as part of the SSH connection request. This will be covered in Steps 48-49.</p>
 <hr />
 <ol start="48">
-<li>Return to the ITZ <strong>My Reservations</strong> summary for the OCP environment once again. Locate the <strong>Environment Summary</strong> section. From the table provided, locate the <strong>Alias</strong> column and copy the URL from the <em>first row</em>. It should be something similar to: <code>cecc-251990-bastion.cecc-251990.cecc.ihost.com</code></li>
+<li>Return to the ITZ <strong>My Reservations</strong> summary for the OCP environment once again. Locate the <strong>Environment Summary</strong> section. From the table provided, locate the <strong>Alias</strong> column and copy the URL from the <em>first row</em>. It should be something similar to:</li>
 </ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cecc-251990-bastion.cecc-251990.cecc.ihost.com
+</code></pre></div>
 <hr />
 <ol start="49">
 <li>With your Terminal window still open and in the same directory as your private key file (<code>~/Desktop</code>), execute the following after substituting your environment's address from Step 48:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh –A cecuser@address-from-step-48
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ssh –A cecuser@address-from-step-48
 </code></pre></div>
 <p>When logging in, you may receive a prompt asking whether to <em>“Use insecure connections?”</em> — respond with <code>y</code> and hit the <code>Return</code> key to continue.</p>
 <hr />
@@ -380,7 +382,7 @@
 <p>To do so, make use of the <em>API login token</em> generated earlier in Step 43. <strong>Paste</strong> that string into the Terminal window and execute:</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>oc login --token<span class="o">=</span>sha256~OClkW4RuU4RxvKRR6rtzy9nWpDoCKUzhlAq9t_TGxFc --server<span class="o">=</span>https://api.cecc-251990.cecc.ihost.com:6443
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>oc login --token<span class="o">=</span>sha256~OClkW4RuU4RxvKRR6rtzy9nWpDoCKUzhlAq9t_TGxFc --server<span class="o">=</span>https://api.cecc-251990.cecc.ihost.com:6443
 </code></pre></div>
 <details class="warning">
 <summary>LOGIN FAILED</summary>
@@ -391,13 +393,13 @@
 <ol start="51">
 <li>With the Terminal window now logged into OCP, execute the following to create a new <em>Project</em> (in effect the same thing you did in Module B through the web graphical interface):</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>oc new-project pyflask-project
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>oc new-project pyflask-project
 </code></pre></div>
 <hr />
 <ol start="52">
 <li>Create a new deployment resource using the <em>Quay.io</em> image in the <code>pyFlask</code> project defined just a moment ago:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>oc create deployment mypyflask --image<span class="o">=</span>quay.io/dpkshetty/pyflask:v1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc create deployment mypyflask --image<span class="o">=</span>quay.io/dpkshetty/pyflask:v1
 </code></pre></div>
 <details class="note">
 <summary>CHECK DEPLOYMENT PROGRESS GRAPHICALLY</summary>
@@ -413,13 +415,13 @@
 <p>Execute the following instruction within Terminal to list all of the running pods available within your <em>namespace</em>:</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>oc get pods
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc get pods
 </code></pre></div>
 <hr />
 <ol start="54">
 <li>Next, you need to expose the deployment’s <code>8080</code> port so that a route to the application can be created:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>oc expose deployment mypyflask --port<span class="o">=</span><span class="m">8080</span> --type<span class="o">=</span>NodePort
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>oc expose deployment mypyflask --port<span class="o">=</span><span class="m">8080</span> --type<span class="o">=</span>NodePort
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">RECORD THIS VALUE</p>
@@ -429,7 +431,7 @@
 <ol start="55">
 <li>Execute the following command to view the service:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>oc get service
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>oc get service
 </code></pre></div>
 <hr />
 <ol start="56">
@@ -472,44 +474,44 @@
 <ol start="60">
 <li>Returning to the Terminal console, execute the following command to increase the capacity of the pod from a single (<code>1</code>) instance up to <code>5</code> instances:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>oc scale --replicas<span class="o">=</span><span class="m">5</span> deployment/mypyflask
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>oc scale --replicas<span class="o">=</span><span class="m">5</span> deployment/mypyflask
 </code></pre></div>
 <hr />
 <ol start="61">
 <li>Check the status of the deployment:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>oc rollout status deployment mypyflask
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>oc rollout status deployment mypyflask
 </code></pre></div>
 <hr />
 <ol start="62">
 <li>Verify that there are now <code>5</code> pod instances running:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>oc get pods -n pyflask-project
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>oc get pods -n pyflask-project
 </code></pre></div>
 <hr />
 <p>Amy’s team will next want to perform a rolling update to the application, thereby deploying it to a new container image. The <em>“rolling” update</em> capabilities of OpenShift make it possible for her team to update the running image and perform an <em>“undo” operation</em> if a problem is later discovered (during or after the update has been performed). Showcase this by updating the application from <code>v1</code> to <code>v2</code> with the following steps.</p>
 <ol start="63">
 <li>Update the application by executing:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>oc <span class="nb">set</span> image deployment/mypyflask <span class="nv">pyflask</span><span class="o">=</span>quay.io/dpkshetty/pyflask:v2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>oc <span class="nb">set</span> image deployment/mypyflask <span class="nv">pyflask</span><span class="o">=</span>quay.io/dpkshetty/pyflask:v2
 </code></pre></div>
 <hr />
 <ol start="64">
 <li>Check the status of the rollout:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>oc rollout status deployment/mypyflask
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>oc rollout status deployment/mypyflask
 </code></pre></div>
 <hr />
 <ol start="65">
 <li>Retrieve a list of newly-launched pods with the <code>v2</code> image:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>oc get pods -n pyflask-project
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>oc get pods -n pyflask-project
 </code></pre></div>
 <hr />
 <ol start="66">
 <li>Take note of the name of one of the new pods from Step 53 and use the following command to confirm that the pod is using the <code>v2</code> application image:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>oc describe pod &lt;pod-name&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>oc describe pod &lt;pod-name&gt;
 </code></pre></div>
 <p>Replace <code>&lt;pod-name&gt;</code> with the value in Step 53. Do not include the <code>&lt; &gt;</code> braces when executing the modified instruction.</p>
 <div class="admonition warning">
@@ -530,39 +532,39 @@
 <ol start="68">
 <li>To see the <code>pyFlask</code> application <em>ReplicaSets</em>, execute the following instruction within the Terminal console:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>oc get replicasets -l <span class="nv">app</span><span class="o">=</span>mypyflask
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>oc get replicasets -l <span class="nv">app</span><span class="o">=</span>mypyflask
 </code></pre></div>
 <p>The number of <code>DESIRED</code>, <code>CURRENT</code>, and <code>READY</code> <em>ReplicaSets</em> for the application should each display <code>5</code>.</p>
 <hr />
 <ol start="69">
 <li>Undo the results of the previous (<code>v2</code>) update by using a <em>rollout</em> instruction set:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>oc rollout undo deployment/mypyflask
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>oc rollout undo deployment/mypyflask
 </code></pre></div>
 <hr />
 <ol start="70">
 <li>Use the <code>status</code> command to check the details of the deployment now that the earlier changes have rolled back:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>oc rollout status deployment/mypyflask
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>oc rollout status deployment/mypyflask
 </code></pre></div>
 <hr />
 <ol start="71">
 <li>Get a list of the newly-created pods:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>oc get pods
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>oc get pods
 </code></pre></div>
 <hr />
 <ol start="72">
 <li>As you did previously in Step 66, use the <code>describe</code> command (and the name of one of the pods from Step 71) to verify that the <code>version</code> of the application has rolled back to <code>v1</code>:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>oc describe pod &lt;pod-name&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>oc describe pod &lt;pod-name&gt;
 </code></pre></div>
 <p>Replace <code>&lt;pod-name&gt;</code> with the name of the pod recorded in Step 71. Do not include the <code>&lt; &gt;</code> braces when executing the modified instruction.</p>
 <hr />
 <ol start="73">
 <li>Repeat your inspection of the <em>ReplicaSets</em> that was first performed in Step 68:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>oc get replicasets -l <span class="nv">app</span><span class="o">=</span>mypyflask
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>oc get replicasets -l <span class="nv">app</span><span class="o">=</span>mypyflask
 </code></pre></div>
 <p>Notice that there’s still two sets of <em>ReplicaSets</em>: the <em>old</em> replicas and the <em>new</em> replicas. And as before, the number of <code>DESIRED</code>, <code>CURRENT</code>, and <code>READY</code> sets are equal to <code>5</code>.</p>
 <p>However, the <code>ACTIVE</code> sets (where the value is <code>5</code>) have now been assigned to the list <em>old</em> replica sets — as opposed to previously in Step 68, where they belonged to the <em>new</em> replica sets. This confirms that the old <em>ReplicaSet</em> list is now active and managing 5 different pod replicas.</p>
