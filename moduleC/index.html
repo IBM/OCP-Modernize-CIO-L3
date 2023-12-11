@@ -331,6 +331,7 @@
 <li>Click the <strong>Copy login command</strong> option from the menu. You will be asked to login using <code>htpasswd</code> a second time.</li>
 <li>Your browser will open a new window which is mostly white, except for a <strong>Display Token</strong> link in the top-left — <strong>click</strong> this link to generate a login string.</li>
 </ul>
+<p><img alt="" loading="lazy" src="../_attachments/66.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -338,6 +339,7 @@
 <li>
 <p>OpenShift will generate a <em>limited-time API token</em> for logging in to the OCP cluster remotely.</p>
 <p><strong>Copy</strong> the complete value under the <em>Log in with this token</em> string (<code>oc login ==token...</code>) and save it to a notepad, as you will be making use of this API token shortly.</p>
+<p><img alt="" loading="lazy" src="../_attachments/67.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -348,6 +350,7 @@
 <li>Locate the <strong>User Private SSH Key</strong> variable and copy it to clipboard using the shortcut button.</li>
 <li><strong>Save</strong> the complete key value (including the <code>BEGIN</code> and <code>END</code> lines) to a new notepad file named <code>privatekey.pem</code> on local Desktop so that it can be quickly referenced at a later step.</li>
 </ul>
+<p><img alt="" loading="lazy" src="../_attachments/65.png" width="600" /></p>
 </li>
 </ol>
 <hr />
@@ -384,6 +387,9 @@
 </code></pre></div>
 <p>When logging in, you may receive a prompt asking whether to <em>“Use insecure connections?”</em> — respond with <code>y</code> and hit the <code>Return</code> key to continue.</p>
 <hr />
+<div class="highlight"><pre><span></span><code>![](_attachments/68.png){: loading=lazy width=&quot;600&quot;}
+</code></pre></div>
+<hr />
 <ol start="50">
 <li>
 <p>You are now connected to the <em>PowerVS bastion host</em>. Next, you need to login to the OCP cluster running on this infrastructure.</p>
@@ -397,10 +403,15 @@
 <p>You might be prompted once again to <em>"Use insecure connection (y/n)?"</em> — respond with <code>y</code>. After authenticating, the Terminal will now be remotely logged into the OpenShift on PowerVS cluster and ready for deploying applications into containers.</p>
 </details>
 <hr />
+<div class="highlight"><pre><span></span><code>![](_attachments/69.png){: loading=lazy width=&quot;600&quot;}
+</code></pre></div>
+<hr />
 <ol start="51">
 <li>With the Terminal window now logged into OCP, execute the following to create a new <em>Project</em> (in effect the same thing you did in Module B through the web graphical interface):</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>oc new-project pyflask-project
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>![](_attachments/70.png){: loading=lazy width=&quot;600&quot;}
 </code></pre></div>
 <hr />
 <ol start="52">
