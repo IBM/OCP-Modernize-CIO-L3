@@ -485,19 +485,21 @@
 <hr />
 <ol start="28">
 <li>
-<p>From the <strong>Deploy Image</strong> page, scroll down and locate the <em>Image</em> section.</p>
+<p>From the <em>Deploy Image</em> page, scroll down and locate the <em>Image</em> section.</p>
 <ul>
 <li>Within the <strong>Image name from external registry</strong> field, change the address from <code>v1</code> to <code>v2</code>.</li>
 <li><strong>Save</strong> your changes at the bottom of the page.</li>
 </ul>
-<p>Your browser will then be taken back to the Resources view. Some patience is required as you see the page gradually update and the changes roll across the various replica pods. Over time you will see “View all 8” or “View all 10” pods, and so on.</p>
+<p></br>
+Your browser will then be taken back to the <em>Resources</em> view. Some patience is required as you see the page gradually update and the changes roll across the various replica pods. Over time you will see “View all 8” or “View all 10” pods, and so on.</p>
 <ul>
 <li>Clicking on <strong>View All</strong> as done previously (Step 25), you'll see the old pods (representing the <code>v1</code> deployment) being terminated and new pods (representing <code>v2</code>) being created.</li>
 <li><strong>Wait</strong> for all old pods to <em>terminate</em> and new pods to be in a <em>Running</em> state before continuing (a total of 5 pods will remain by the time this process concludes).</li>
 </ul>
 </li>
 </ol>
-<p><img alt="" loading="lazy" src="../_attachments/60.png" width="600" /></p>
+<p></br>
+<img alt="" loading="lazy" src="../_attachments/60.png" width="600" /></p>
 <hr />
 <ol start="29">
 <li>
@@ -558,14 +560,14 @@
 <hr />
 <ol start="37">
 <li>
-<p>To undo (rollback) a deployment from <code>v2</code> back to <code>v1</code>, <strong>click</strong> the <em>three stacked dots</em> icon (at the far right of 0 of 0 pods) to toggle open a list of commands.</p>
+<p>To undo (rollback) a deployment from <code>v2</code> back to <code>v1</code>, <strong>click</strong> the <em>three stacked dots</em> icon (at the far right of <code>0 of 0 pods</code>) to toggle open a list of commands.</p>
 <p>Select the <strong>Rollback</strong> option to execute a version change back to <code>v1</code>.</p>
 <p><img alt="" loading="lazy" src="../_attachments/64.png" width="600" /></p>
 </li>
 </ol>
 <hr />
 <ol start="38">
-<li>You will see a new <em>ReplicaSet</em> created and pods will soon be added to that grouping. Wait for the <code>v2</code> <em>ReplicaSet</em> to display <code>(0 of 0 pods)</code> and for the rolled-back (<code>v1</code>) <em>ReplicaSet</em> to display <code>(5 of 5 pods)</code>.</li>
+<li>You will see a new <em>ReplicaSet</em> created and pods will soon be added to that grouping. Wait for the <code>v2</code> <em>ReplicaSet</em> to display <code>0 of 0 pods</code> and for the rolled-back (<code>v1</code>) <em>ReplicaSet</em> to display <code>5 of 5 pods</code>.</li>
 </ol>
 <hr />
 <ol start="39">
