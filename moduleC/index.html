@@ -313,8 +313,8 @@
 <p class="admonition-title">COMMAND LINE ACCESS</p>
 <p>In the module ahead, you will be required to establish connections over SSH to remote infrastructure endpoints. It is recommended that users do so via <strong>Terminal</strong> (Mac) or <strong>PuTTY</strong> (Windows). For detailed instructions on how to connect with PuTTY, or if you are using a Windows machine, <a href="https://ibm.box.com/s/d71tn63hutdxrjwh21qdzralrsxlcspe" target="_blank">reference the linked material</a>.</p>
 </div>
-<p>The following steps will replicate the work done previously in Module B, but this time using a programmatic (command-line) driven approach, rather than Openshift's web-based graphical user interface.</p>
-<p>The first step will be the creation of an application within OpenShift Container Platform (OCP) from an existing image hosted on the <strong>Red Hat Quay.io</strong> repository. In this module, you will be performing these operations programmatically using remote connections over SSH (via Terminal or Putty). The numbering of these instructions continues from Module B.</p>
+<p>The following steps will replicate the work done previously in <em>Module B</em>, but this time using a programmatic (command-line) driven approach, rather than Openshift's web-based graphical user interface.</p>
+<p>The first step will be the creation of an application within OpenShift Container Platform (OCP) from an existing image hosted on the <strong>Red Hat Quay.io</strong> repository. In this module, you will be performing these operations programmatically using remote connections over SSH (via Terminal or Putty). The numbering of these instructions continues from <em>Module B</em>.</p>
 <hr />
 <ol start="40">
 <li>If you are not logged into the Red Hat OpenShift cluster already, do so now. You will need to access parts of the OpenShift dashboard briefly before you can get to work over an SSH connection.</li>
@@ -462,12 +462,12 @@
 <ol start="59">
 <li>
 <p>Once the route has been defined and created, your browser will redirect to the Route Details panel. Here you will find additional configuration and health check details about the status of your route.</p>
-<p>Click the <em>URL</em> below the <em>Location</em> section to view a live deployment of the <code>pyFlask</code> app.</p>
+<p>Click the <em>URL</em> below the <em>Location</em> section to view a live deployment of the <code>mypyflask</code> app.</p>
 </li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">RECORD THIS VALUE</p>
-<p>Record the output printed to screen from the live <code>pyFlask</code> application.</p>
+<p>Record the output printed to screen from the live <code>mypyflask</code> application.</p>
 </div>
 <hr />
 <p>Now that you have successfully deployed the application using an existing <em>Quay.io</em> image, try scaling and rolling back the application. The creation of multiple replicas of a pod will help Amy and her team to ensure that their application’s deployment always has the available capacity (and resources) to meet the need of any increased demand for the application within the company. </p>
@@ -524,16 +524,16 @@
 <ol start="67">
 <li>
 <p>Notice that the service and router objects remain unchanged, despite having updated the underlying <em>Quay.io</em> image version of the running pod.</p>
-<p>Return to the <strong>Route Details</strong> panel (Step 59) and once again click the <em>URL</em> under the <em>Location</em> category. This will launch a new browser window where the <code>v2</code> update of <code>pyFlask</code> will be live and accessible.</p>
+<p>Return to the <strong>Route Details</strong> panel (Step 59) and once again click the <em>URL</em> under the <em>Location</em> category. This will launch a new browser window where the <code>v2</code> update of <code>mypyflask</code> will be live and accessible.</p>
 <p>Take note of the updated message printed to screen.</p>
 </li>
 </ol>
 <hr />
-<p>When performing an application rollback, Amy’s team is able to inspect references to both old replicas and new ones. In the case of the <code>pyFlask</code> application, you should expect to see old replicas of the original 5 pods deployed earlier when you scaled the application.</p>
+<p>When performing an application rollback, Amy’s team is able to inspect references to both old replicas and new ones. In the case of the <code>mypyflask</code> application, you should expect to see old replicas of the original 5 pods deployed earlier when you scaled the application.</p>
 <p>The new replicas will be generated as a result of deploying 5 newly-created pods with the new application (<code>v2</code>) image. OpenShift uses a resource called a <em>ReplicaSet</em> to manage these two sets (old replicas and new replicas).</p>
 <hr />
 <ol start="68">
-<li>To see the <code>pyFlask</code> application <em>ReplicaSets</em>, execute the following instruction within the Terminal console:</li>
+<li>To see the <code>mypyflask</code> application <em>ReplicaSets</em>, execute the following instruction within the Terminal console:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>oc get replicasets -l <span class="nv">app</span><span class="o">=</span>mypyflask
 </code></pre></div>
@@ -573,7 +573,7 @@
 <p>However, the <code>ACTIVE</code> sets (where the value is <code>5</code>) have now been assigned to the list <em>old</em> replica sets — as opposed to previously in Step 68, where they belonged to the <em>new</em> replica sets. This confirms that the old <em>ReplicaSet</em> list is now active and managing 5 different pod replicas.</p>
 <hr />
 <ol start="74">
-<li>Return to the <strong>Route Details</strong> panel on the OpenShift web dashboard (Step 59) and click the <em>URL</em> under the <em>Location</em> category. This will launch a new browser window, which should display the <code>v1</code> version of <code>pyFlask</code> once again. This confirms that the rollback operation was a success.</li>
+<li>Return to the <strong>Route Details</strong> panel on the OpenShift web dashboard (Step 59) and click the <em>URL</em> under the <em>Location</em> category. This will launch a new browser window, which should display the <code>v1</code> version of <code>mypyflask</code> once again. This confirms that the rollback operation was a success.</li>
 </ol>
 <hr />
 <p>Well done! You’ve succeeded in managing Amy's app programmatically via Red Hat OpenShift on Power. That concludes the hands-on components to this Level 3 course.</p>
