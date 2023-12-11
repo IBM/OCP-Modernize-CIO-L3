@@ -384,13 +384,13 @@
 <li>
 <p>You are now connected to the <em>PowerVS bastion host</em>. Next, you need to login to the OCP cluster running on this infrastructure.</p>
 <p>To do so, make use of the <em>API login token</em> generated earlier in Step 43. <strong>Paste</strong> that string into the Terminal window and execute.</p>
-</li>
-</ol>
 <details class="warning">
 <summary>LOGIN FAILED</summary>
 </details>
-<p>If the login fails, try replacing <code>api.cecc-251990.cecc.ihost.com</code> with <code>localhost</code> instead, and try again.</p>
-<p>Remember to use your <strong>own</strong> unique API login token. It should look similar to <code>oc login --token=sha256~qE1YW2_2xSr12U_DJtryPXy6wAeTTwpHhGvJyxoL8v4 --server=https://api.itzpvs-212921.cecc.ihost.com:6443</code>.</p>
+<p>Remember to use your <strong>own</strong> unique API login token. It should look similar to <code>oc login --token=sha256~qE1YW2_2xSr12U_DJtryPXy6wAeTTwpHhGvJyxoL8v4 --server=https://api.itzpvs-212921.cecc.ihost.com:6443</code>.
+If the login fails, try replacing <code>api.cecc-251990.cecc.ihost.com</code> with <code>localhost</code> instead, and try again.</p>
+</li>
+</ol>
 <p>You might be prompted once again to <em>"Use insecure connection (y/n)?"</em> — respond with <code>y</code>. After authenticating, the Terminal will now be remotely logged into the OpenShift on PowerVS cluster and ready for deploying applications into containers.</p>
 <hr />
 <ol start="51">
