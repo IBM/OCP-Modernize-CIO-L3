@@ -513,11 +513,13 @@
 </code></pre></div>
 <p><img alt="" loading="lazy" src="../_attachments/76.png" width="600" /></p>
 <hr />
-<p>Amy’s team will next want to perform a rolling update to the application, thereby deploying it to a new container image. The <em>“rolling” update</em> capabilities of OpenShift make it possible for her team to update the running image and perform an <em>“undo” operation</em> if a problem is later discovered (during or after the update has been performed).</p>
-<p>Showcase this by updating the application from <code>v1</code> to <code>v2</code> with the following steps.</p>
+<p>Amy’s team will next want to perform a <strong>rolling update</strong> to the application, thereby deploying it to a new container image. The <em>“rolling” update</em> capabilities of OpenShift make it possible for her team to <strong>update</strong> the running image — as well as perform an <em>“undo” (rollback) operation</em> to the same imge, if a problem is later discovered.</p>
+<p>You will shhowcase these <em>"rolling" update</em> capabilities in two ways:
+- First, by updating the application from <code>v1</code> to <code>v2</code>
+- Second, by rolling back the update to revert the application back to <code>v1</code></p>
 <hr />
 <ol start="63">
-<li>Update the application by executing:</li>
+<li>Update the application from <code>v1</code> to <code>v2</code> by executing the following:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>oc <span class="nb">set</span> image deployment/mypyflask <span class="nv">pyflask</span><span class="o">=</span>quay.io/dpkshetty/pyflask:v2
 </code></pre></div>
