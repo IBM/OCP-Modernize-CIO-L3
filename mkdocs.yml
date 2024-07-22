@@ -1,0 +1,53 @@
+# Project info
+site_name: Modernizing Business for Hybrid Cloud with IBM Power and Red Hat OpenShift (CIO Persona) for Technical Sales Level 3
+site_description: Modernizing Business for Hybrid Cloud with IBM Power and Red Hat OpenShift (CIO Persona) for Technical Sales Level 3
+site_author: Christopher Bienko (cdbienko@us.ibm.com)
+copyright: Copyright &copy; 2023 IBM
+
+# Repository
+repo_name: IBM/OCP-Modernize-CIO-L3
+#repo_url: https://github.com/IBM/OCP-Modernize-CIO-L3
+#edit_uri: edit/master/docs
+docs_dir: docs
+
+
+nav:
+  - Introduction: 'index.md'
+  - Evaluation: 'evaluation.md'
+  - Setup: 'setup.md'
+  - Module A - Red Hat OpenShift S2I and GitHub webhooks: 'moduleA.md'
+  - Module B - Working graphically with OpenShift: 'moduleB.md'
+  - Module C - Programmatically manipulating OpenShift: 'moduleC.md'
+
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - content.code.annotate
+  palette:
+      scheme: default
+
+plugins:
+    - mkdocs-video
+    - macros
+    - search
+
+markdown_extensions:
+  - markdown_fenced_code_tabs
+  - sane_lists
+  - pymdownx.details
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.keys
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
